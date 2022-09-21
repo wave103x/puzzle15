@@ -22,6 +22,19 @@ body {
     font-weight: 400;
 }
 
+.font-smalltext {
+    font-size: 15px;
+    line-height: 1.2;
+    font-weight: 300;
+}
+
+.font-btn {
+    font-size: 16px;
+    line-height: 1.4;
+    font-weight: 500;
+    text-transform: uppercase;
+}
+
 .wrapper {
     width: 100%;
     max-width: 1160px;
@@ -69,6 +82,7 @@ body {
     right: 11.6%;
     bottom: 7.8%;
 }
+
 
 
 /*      header       */
@@ -185,6 +199,17 @@ body {
 /*      backstage        */
 
 .backstage {
+    position: relative;
+}
+
+.backstage__right-img {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.backstage-content {
     display: flex;
     gap: 87px;
     margin-bottom: 180px;
@@ -203,12 +228,96 @@ body {
 .backstage__item h2 {
     margin: 0 0 20px;
 }
+
 .backstage__item .font-body {
     margin: 0 0 54px;
 }
+
 .backstage__item .font-subtitle {
     margin: 0 0 34px;
 }
+
 .backstage__item .font-body:last-child {
     margin: 0;
+}
+
+
+
+/*      pets         */
+
+.pets {
+    padding-bottom: 100px;
+    position: relative;
+    background: right bottom no-repeat url(../../assets/images/strelitzia-1.png),
+        left bottom no-repeat url(../../assets/images/palm_foto.png);
+}
+
+.pets__layout {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    position: relative;
+}
+
+.pets__item {
+    padding: 0;
+    margin: 0;
+    border: double 1px transparent;
+    border-radius: 5px;
+    background-image: linear-gradient(white, white),
+        linear-gradient(113.96deg, #FA6F32 1.49%, #FE9013 101.44%);
+    background-origin: border-box;
+    background-clip: content-box, border-box;
+}
+
+.pets-item__caption {
+    padding: 8px 16px 14px;
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+}
+
+.pets-item__img {
+    border-radius: 5px 5px 0 0;
+}
+
+.pets__btn {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    margin-top: 80px;
+}
+
+.button-arrow {
+    position: absolute;
+    border: none;
+    width: 62px;
+    height: 62px;
+    border-radius: 50%;
+    background: linear-gradient(113.96deg, #F9804B 1.49%, #FE9013 101.44%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+
+.button-arrow {
+    font-variation-settings:
+        'FILL' 0,
+        'wght' 200,
+        'GRAD' 0,
+        'opsz' 48
+}
+
+.button-arrow_left {
+    top: 50%;
+    right: calc(100% + 20px);
+    transform: translateY(-50%);
+}
+
+.button-arrow_right {
+    top: 50%;
+    left: calc(100% + 20px);
+    transform: translateY(-50%);
 }

@@ -1,3 +1,8 @@
 import 'normalize.css'
 import './style.css'
 import '../../assets/images/bamboo-cap.jpg'
+import '../../assets/images/flower_foto1.png'
+import '../../assets/images/pets-1.jpg'
+import '../../assets/images/flower_foto1.png'
+import '../../assets/images/palm_foto.png'
+import '../../assets/icons/banana-bamboo_icon.svg'
