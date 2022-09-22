@@ -4,6 +4,9 @@ body {
 
 :root {
     --color-green: #4B9200;
+    --color-gray: #767474;
+    --color-graylight: #F1F3F2;
+    --color-orangemain: #FE9013;
 }
 
 /*      general      */
@@ -11,7 +14,7 @@ body {
 .link-text {
     color: inherit;
     text-decoration: none;
-    border-bottom: 1px solid #FE9013;
+    border-bottom: 1px solid var(--color-orangemain);
     padding-bottom: 2px;
     transition: 0.2s;
 }
@@ -31,6 +34,7 @@ body {
     font-size: 36px;
     line-height: 1.3;
     font-weight: 400;
+    text-align: center;
 }
 
 .font-body {
@@ -45,7 +49,7 @@ body {
     font-weight: 400;
 }
 
-.font-smalltext {
+.font-smallparagraph {
     font-size: 15px;
     line-height: 1.2;
     font-weight: 300;
@@ -82,6 +86,12 @@ body {
 
 .button_round_25 {
     border-radius: 25px;
+    width: 300px;
+    padding: 16px 0;
+}
+
+.button_round_5 {
+    border-radius: 5px;
     width: 300px;
     padding: 16px 0;
 }
@@ -320,21 +330,14 @@ body {
     width: 62px;
     height: 62px;
     border-radius: 50%;
-    background: linear-gradient(113.96deg, #F9804B 1.49%, #FE9013 101.44%);
     display: flex;
     justify-content: center;
     align-items: center;
     color: white;
     cursor: pointer;
-    background-image: linear-gradient(113.96deg, #F9804B 1.49%, #FE9013 101.44%);
-    background-color: #F9804B;
     transition: 0.2s;
 }
 
-.button-arrow:active {
-    background-color: var(--color-green);
-    background-image: unset;
-}
 
 .button-arrow {
     font-variation-settings:
@@ -361,9 +364,12 @@ body {
 /*      pick friend      */
 
 .pick-friend {
-    background-image: linear-gradient(315.75deg, rgba(254, 210, 144, 0.7) 30.06%, #FEBDAB 100.95%, rgba(254, 210, 144, 0.7) 106.36%), linear-gradient(315.75deg, rgba(254, 189, 171, 0.74) 30.06%, rgba(243, 169, 248, 0.66) 50.74%, #E0D8F0 80.49%, #EAF7FE 127.9%, #EAF7FE 149.54%), linear-gradient(315.75deg, rgba(254, 189, 171, 0.74) 30.06%, rgba(243, 169, 248, 0.66) 50.74%, #E0D8F0 80.49%, #EAF7FE 127.9%, #EAF7FE 149.54%);
+    background-image:
+    linear-gradient(315.75deg, rgba(254, 210, 144, 0.7) 30.06%, #FEBDAB 100.95%, rgba(254, 210, 144, 0.7) 106.36%),
+    linear-gradient(315.75deg, rgba(254, 189, 171, 0.74) 30.06%, rgba(243, 169, 248, 0.66) 50.74%, #E0D8F0 80.49%, #EAF7FE 127.9%, #EAF7FE 149.54%);
     opacity: 0.9;
     padding: 70px 0 100px;
+    margin-bottom: 140px;
 }
 
 .pick-friend__content {
@@ -408,7 +414,7 @@ body {
 }
 
 .pick-friend__content .h2{
-    color: #FE9013;
+    color: var(--color-orangemain);
     margin: 0 0 30px;
 }
 
@@ -423,4 +429,76 @@ body {
 
 .pick-friend__content .h3{
     margin: 50px 0 0;
+}
+
+
+
+/*      testimonials         */
+
+.testimonials {
+    padding-bottom: 180px;
+    background: right bottom no-repeat url(../../assets/images/leav.png);
+}
+
+.testimonials_h3 {
+    margin: 0 0 47px;
+}
+
+.testimonials__layout {
+    display: flex;
+    gap: 30px;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.testimonials-layout__item {
+    padding: 2px;
+    max-width: 25%;
+    display: flex;
+    flex-direction: column;
+    border: double 1px transparent;
+    border-radius: 20px;
+    background-image: linear-gradient(#F1F3F2, #F1F3F2), linear-gradient(315.75deg, rgba(254, 189, 171, 0.74) 30.06%, rgba(243, 169, 248, 0.66) 50.74%, #E0D8F0 80.49%, #EAF7FE 127.9%, #EAF7FE 149.54%);
+    background-origin: border-box;
+    background-clip: content-box, border-box;
+}
+
+.testimonials-item__header {
+    margin: 16px;
+    display: flex;
+    gap: 10px;
+}
+
+.testimonials-item-header__subtext {
+    color: #bdbdbd;
+    display: flex;
+    gap: 6px;
+}
+
+.testimonials-layout__body {
+    margin: 16px;
+    margin-top: 0;
+    color: var(--color-gray);
+}
+
+.testimonials__scroll {
+    width: 100%;
+    max-width: 600px;
+    height: 8px;
+    margin: 0 auto;
+    border-radius: 4px;
+    margin-bottom: 30px;
+    padding: 1px;
+    background-image:
+    linear-gradient(#F5F7F6, #F5F7F6),
+    linear-gradient(315.75deg, rgba(254, 189, 171, 0.74) 30.06%, rgba(243, 169, 248, 0.66) 50.74%, #E0D8F0 80.49%, #EAF7FE 127.9%, #EAF7FE 149.54%);
+    background-origin: border-box;
+    background-clip: content-box, border-box;
+}
+
+.testimonials-scroll__bar {
+    width: 30%;
+    margin: 1px;
+    height: 6px;
+    border-radius: 3px;
 }
