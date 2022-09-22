@@ -11,6 +11,36 @@ body {
 
 /*      general      */
 
+.submit-btn {
+    font-size: 16px;
+    line-height: 1.4;
+    color: black;
+    padding: 10px 40px;
+    border: 1px solid #333B41;
+    border-radius: 5px;
+    background-color: var(--color-graylight);
+    box-sizing: border-box;
+    max-height: 42px;
+}
+
+.input-text {
+    background-color: transparent;
+    border: 1px solid var(--color-orangemain);
+    border-radius: 2px;
+    padding: 10px;
+    max-height: 42px;
+}
+
+.input-text_subscribe {
+    margin-right: 10px;
+}
+
+.input-text::placeholder {
+    font-size: 16px;
+    line-height: 1.4;
+    color: #bdbdbd;
+}
+
 .link-text {
     color: inherit;
     text-decoration: none;
@@ -82,6 +112,7 @@ body {
     border: none;
     cursor: pointer;
     transition: 0.2s;
+    height: fit-content;
 }
 
 .button_round_25 {
@@ -116,7 +147,9 @@ body {
     bottom: 7.8%;
 }
 
-
+.copyright {
+    color: white;
+}
 
 /*      header       */
 
@@ -140,6 +173,7 @@ body {
     max-width: 82px;
     border: 1px solid white;
     border-radius: 2px;
+    height: fit-content;
 }
 
 .logo__h1 {
@@ -304,17 +338,41 @@ body {
         linear-gradient(113.96deg, #FA6F32 1.49%, #FE9013 101.44%);
     background-origin: border-box;
     background-clip: content-box, border-box;
+    position: relative;
 }
 
 .pets-item__caption {
-    padding: 8px 16px 14px;
-    position: relative;
+    padding: 8px 16px 10px;
+    position: absolute;
+    bottom: 0;
     display: flex;
     justify-content: space-between;
+    transition: 0.2s;
+    background-color: var(--color-graylight);
+    z-index: 1;
+    left:-1px;
+    width: calc(100% - 30px);
+    border-radius: 5px;
 }
 
 .pets-item__img {
-    border-radius: 5px 5px 0 0;
+    border-radius: 5px;
+    transition: 0.2s;
+    position: relative;
+    z-index: 3;
+    display: block;
+}
+
+.pets__item:hover .pets-item__img {
+    transform: scale(1.05);
+}
+
+.pets__item:hover .pets-item__caption {
+    bottom: -72px;
+}
+
+.pets__item:hover {
+    z-index: 10;
 }
 
 .pets__btn {
@@ -501,4 +559,76 @@ body {
     margin: 1px;
     height: 6px;
     border-radius: 3px;
+}
+
+
+
+/*      footer       */
+
+.footer {
+    width: 100%;
+    background-color: #111115;
+
+}
+
+.footer__layout {
+    padding: 40px 0 50px;
+    display: grid;
+    justify-content: space-between;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 120px 100px 1fr;
+    grid-template-areas:
+        "logo . subscribe"
+        "button . ."
+        "social menu copyright";
+}
+
+.logo_footer {
+    grid-area: logo;
+}
+
+.social {
+    display: flex;
+}
+
+.subscribe_type_footer {
+    grid-area: subscribe;
+    color: white;
+    justify-self: end;
+}
+
+.button_type_footer {
+    grid-area: button;
+}
+
+.social_type_footer {
+    grid-area: social;
+    color: white;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.menu_type_footer {
+    grid-area: menu;
+    align-self: end;
+}
+
+.copyright_type_footer {
+    grid-area: copyright;
+    justify-self: end;
+    align-self: end;
+    font-weight: 200;
+}
+
+.social__logo {
+    vertical-align: middle;
+    margin-right: 8px;
+}
+
+.social__name {
+    vertical-align: bottom;
+}
+
+.subscribe {
+    margin-top: 14px;
 }
