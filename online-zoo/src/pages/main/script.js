@@ -1,5 +1,6 @@
 import 'normalize.css'
 import './style.css'
+import '../../assets/styles/general.css'
 import '../../assets/images/bamboo-cap.jpg'
 import '../../assets/images/flower_foto1.png'
 import '../../assets/images/pets-1.jpg'
