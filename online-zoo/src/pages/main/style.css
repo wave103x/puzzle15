@@ -1,11 +1,8 @@
-
-
-
 /*          first-screen         */
 
 .first-screen {
-    min-height: 780px;
-    background: center / cover no-repeat url(../../assets/images/Giant-Panda.jpg) #eee;
+    min-height: 700px;
+    background: center -226px / cover no-repeat url(../../assets/images/panda_bg.jpg) #eee;
     position: relative;
     margin: 0 auto;
     margin-bottom: 140px;
@@ -19,9 +16,8 @@
     text-transform: uppercase;
     text-align: center;
     color: white;
-    width: 40%;
     max-width: 500px;
-    top: 22%;
+    top: 12%;
     right: 0;
     z-index: 2;
     margin: 0;
@@ -32,11 +28,16 @@
     height: 465px;
     border-radius: 50%;
     position: absolute;
-    top: 12%;
+    top: 2%;
     right: 9.3%;
     background: linear-gradient(113.96deg, #F9804B 1.49%, #FE9013 101.44%);
 }
 
+.button_type_first-screen {
+    position: absolute;
+    right: 8.6%;
+    bottom: 14%;
+}
 
 
 /*      backstage        */
@@ -48,14 +49,14 @@
 .backstage__right-img {
     position: absolute;
     right: 0;
-    top: 50%;
+    top: 45%;
     transform: translateY(-50%);
 }
 
 .backstage-content {
     display: flex;
     gap: 87px;
-    margin-bottom: 180px;
+    margin-bottom: 173px;
 }
 
 .backstage__img {
@@ -113,6 +114,7 @@
     background-origin: border-box;
     background-clip: content-box, border-box;
     position: relative;
+    cursor: pointer;
 }
 
 .pets-item__caption {
@@ -125,8 +127,9 @@
     background-color: var(--color-graylight);
     z-index: 1;
     left:-1px;
-    width: calc(100% - 30px);
+    width: calc(100% - 32px);
     border-radius: 5px;
+    border: 1px solid var(--color-orangemain);
 }
 
 .pets-item__img {
@@ -209,12 +212,16 @@
     flex-direction: column;
     border-radius: 20px;
     background-color: rgba(253, 253, 255, 0.52);
-    padding: 5% 11% 7%;
+    padding: 40px 0 60px;
     align-items: center;
 }
 
+.pick-friend-content__inner {
+    margin-left: 50px;
+}
+
 .pick-friend__how-works {
-    margin: 60px 0;
+    margin: 36px 0 70px;
     display: flex;
     gap: 30px;
     justify-content: center;
@@ -285,10 +292,12 @@
 
 .testimonials-layout__item {
     padding: 2px;
-    max-width: 25%;
+    /* max-width: 25%; */
+    width: 100%;
+    max-height: 390px;
     display: flex;
     flex-direction: column;
-    border: double 1px transparent;
+    /* border: double 1px transparent; */
     border-radius: 20px;
     background-image: linear-gradient(#F1F3F2, #F1F3F2), linear-gradient(315.75deg, rgba(254, 189, 171, 0.74) 30.06%, rgba(243, 169, 248, 0.66) 50.74%, #E0D8F0 80.49%, #EAF7FE 127.9%, #EAF7FE 149.54%);
     background-origin: border-box;
@@ -296,9 +305,13 @@
 }
 
 .testimonials-item__header {
-    margin: 16px;
+    margin: 13px;
     display: flex;
     gap: 10px;
+}
+
+.testimonials-item__header img {
+    border-radius: 50%;
 }
 
 .testimonials-item-header__subtext {
@@ -308,9 +321,10 @@
 }
 
 .testimonials-layout__body {
-    margin: 16px;
+    margin: 13px;
     margin-top: 0;
     color: var(--color-gray);
+    overflow: hidden;
 }
 
 .testimonials__scroll {
@@ -333,95 +347,4 @@
     margin: 1px;
     height: 6px;
     border-radius: 3px;
-}
-
-
-
-/*      footer       */
-
-.footer {
-    width: 100%;
-    background-color: #111115;
-
-}
-
-.footer__layout {
-    padding: 40px 0 50px;
-    display: grid;
-    justify-content: space-between;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: 120px 100px 1fr;
-    grid-template-areas:
-        "logo . subscribe"
-        "button . ."
-        "social menu copyright";
-}
-
-.logo_footer {
-    grid-area: logo;
-}
-
-.social {
-    display: flex;
-}
-
-.subscribe_type_footer {
-    grid-area: subscribe;
-    color: white;
-    justify-self: end;
-}
-
-.button_type_footer {
-    grid-area: button;
-}
-
-.social_type_footer {
-    grid-area: social;
-    color: white;
-    flex-direction: column;
-    gap: 10px;
-    align-items: flex-start;
-}
-
-.menu_type_footer {
-    grid-area: menu;
-    align-self: end;
-}
-
-.copyright_type_footer {
-    grid-area: copyright;
-    justify-self: end;
-    align-self: end;
-    font-weight: 200;
-}
-
-.social__logo {
-    vertical-align: middle;
-    margin-right: 8px;
-}
-
-.link_footer-social path {
-    transition: 0.2s;
-}
-
-.link_footer-social:hover path {
-    fill: var(--color-orangemain);
-}
-
-.social__name {
-    vertical-align: bottom;
-}
-
-.subscribe {
-    margin-top: 14px;
-}
-
-.input-text_subscribe:invalid + .submit-btn {
-    color: var(--color-red);
-    border-color: var(--color-red);
-}
-
-.input-text_subscribe:valid + .submit-btn {
-    color: var(--color-orangemain);
-    border-color: var(--color-bd);
 }

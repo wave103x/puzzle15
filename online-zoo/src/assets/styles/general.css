@@ -51,7 +51,8 @@ body {
 }
 
 .input-text_subscribe {
-    margin-right: 10px;
+    margin-right: 5px;
+    min-width: 228px;
 }
 
 .input-text::placeholder {
@@ -100,7 +101,7 @@ body {
 
 .font-smallparagraph {
     font-size: 15px;
-    line-height: 1.2;
+    line-height: 1.21;
     font-weight: 300;
 }
 
@@ -139,6 +140,7 @@ body {
     border-radius: 25px;
     width: 300px;
     padding: 16px 0;
+    max-height: 54px;
 }
 
 .button_round_5 {
@@ -161,11 +163,7 @@ body {
     background-image: unset;
 }
 
-.button_type_first-screen {
-    position: absolute;
-    right: 11.6%;
-    bottom: 7.8%;
-}
+
 
 .copyright {
     color: white;
@@ -183,8 +181,8 @@ body {
     background-color: black;
     width: 100%;
     color: white;
-    position: absolute;
-    z-index: 2;
+    /* position: absolute;
+    z-index: 2; */
 }
 
 .header__inner {
@@ -200,6 +198,9 @@ body {
     border: 1px solid white;
     border-radius: 2px;
     height: fit-content;
+    padding: 4px 0 0;
+    box-sizing: border-box;
+    max-width: 82px;
 }
 
 .logo__h1 {
@@ -209,6 +210,7 @@ body {
     margin: 0;
     position: relative;
     font-weight: 300;
+    line-height: 1.2;
 }
 
 .logo_type_header {
@@ -220,8 +222,8 @@ body {
     position: absolute;
     width: 11.5px;
     height: 20px;
-    left: 11px;
-    bottom: 7px;
+    left: 9px;
+    bottom: 6px;
     background: url('../../assets/icons/bamboo.svg')
 }
 
@@ -249,4 +251,119 @@ body {
     -webkit-text-fill-color: transparent;
     background-clip: text;
     color: #F9804B;
+}
+
+.color_white {
+    color: white;
+}
+
+.text-left {
+    text-align: left;
+    align-self: flex-start;
+}
+
+
+/*      footer       */
+
+.footer {
+    width: 100%;
+    background-color: #111115;
+
+}
+
+.footer__layout {
+    padding: 40px 0 50px;
+    display: grid;
+    justify-content: space-between;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 120px 100px 1fr;
+    grid-template-areas:
+        "logo . subscribe"
+        "button . ."
+        "social menu copyright";
+}
+
+.logo_footer {
+    grid-area: logo;
+}
+
+.social {
+    display: flex;
+}
+
+.subscribe_type_footer {
+    grid-area: subscribe;
+    color: white;
+    justify-self: end;
+}
+
+.button_type_footer {
+    grid-area: button;
+}
+
+.social_type_footer {
+    grid-area: social;
+    color: white;
+    flex-direction: column;
+    gap: 10px;
+    align-items: flex-start;
+}
+
+.menu_type_footer {
+    grid-area: menu;
+    align-self: end;
+    justify-self: center;
+}
+
+.copyright_type_footer {
+    grid-area: copyright;
+    justify-self: end;
+    align-self: end;
+    font-weight: 200;
+}
+
+.copyright_type_footer div:first-child {
+    margin-bottom: 10px;
+}
+
+.social__logo {
+    vertical-align: middle;
+    margin-right: 8px;
+}
+
+.link_footer-social path {
+    transition: 0.2s;
+}
+
+.link_footer-social:hover path {
+    fill: var(--color-orangemain);
+}
+
+.social__name {
+    vertical-align: bottom;
+}
+
+.subscribe {
+    margin-top: 14px;
+}
+
+.input-text:invalid + .submit-btn {
+    color: var(--color-red);
+    border-color: var(--color-red);
+}
+
+.input-text:valid + .submit-btn {
+    color: var(--color-orangemain);
+    border-color: var(--color-bd);
+}
+
+.input-text_number {
+    width: 268px;
+    min-height: 54px;
+    padding: 0 9px;
+    border-color: #929699;
+}
+
+.margin0 {
+    margin: 0;
 }
