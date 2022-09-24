@@ -55,13 +55,13 @@
 
 .backstage-content {
     display: flex;
-    gap: 87px;
+    gap: 7.5%;
     margin-bottom: 173px;
 }
 
 .backstage__img {
-    width: 609px;
-    height: 403px;
+    width: 52%;
+    height: fit-content;
 }
 
 .backstage__item {
@@ -118,7 +118,7 @@
 }
 
 .pets-item__caption {
-    padding: 8px 16px 10px;
+    padding: 16px 16px 10px;
     position: absolute;
     bottom: 0;
     display: flex;
@@ -133,11 +133,15 @@
 }
 
 .pets-item__img {
-    border-radius: 5px;
+    border-radius: 3px;
     transition: 0.2s;
     position: relative;
     z-index: 3;
     display: block;
+}
+
+.pets-item__img-wrapper {
+    overflow: hidden;
 }
 
 .pets__item:hover .pets-item__img {
@@ -145,7 +149,7 @@
 }
 
 .pets__item:hover .pets-item__caption {
-    bottom: -72px;
+    bottom: -66px;
 }
 
 .pets__item:hover {
@@ -343,7 +347,7 @@
 }
 
 .testimonials-scroll__bar {
-    width: 30%;
+    width: 115px;
     margin: 1px;
     height: 6px;
     border-radius: 3px;
