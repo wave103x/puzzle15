@@ -21,13 +21,13 @@ module.exports = {
         }),
         new HtmlWebpackPlugin({
             template: './src/pages/main/index.html',
-            filename: "index.main.html",
+            filename: "index.html",
             favicon: './src/assets/icons/favicon.ico',
             chunks: ['main'],
         }),
         new HtmlWebpackPlugin({
             template: './src/pages/donate/index.html',
-            filename: "index.donate.html",
+            filename: "donate.html",
             favicon: './src/assets/icons/favicon.ico',
             chunks: ['donate'],
         }),

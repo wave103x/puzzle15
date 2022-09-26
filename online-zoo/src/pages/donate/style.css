@@ -177,6 +177,7 @@
 
 .donate-form__another-amount {
     position: relative;
+    -moz-appearance:textfield;
 }
 
 .donate-form__another-amount label {
