@@ -1,3 +1,4 @@
+@charset 'utf-8';
 /*      hero image       */
 
 .hero-image {
@@ -191,7 +192,8 @@
 .donate-form__period {
     display: flex;
     gap: 50px;
-    margin: 15px 0 18px;
+    margin: 13px 0 20px;
+    margin-left: -11px;
 }
 
 .donate-form-period__item input {

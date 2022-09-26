@@ -20,7 +20,7 @@
                 <a class="menu__link" href="./index.main.html">About</a>
                 <a class="menu__link" href="#">Map</a>
                 <a class="menu__link" href="#">Zoos</a>
-                <a class="menu__link menu__link_active" href="#">Donate</a>
+                <a class="menu__link menu__link_active menu__link_disabled" href="#">Donate</a>
                 <a class="menu__link" href="#">Contact us</a>
             </nav>
             <a class="copyright copyright_type_header menu__link link_no-effects"
@@ -97,7 +97,7 @@
                     </div>
                     <div class="donate-form__another-amount">
                         <label class="__currency">&dollar;</label>
-                        <input class="input-text input-text_number donate-form__another-amount" placeholder="Another amount" oninput="if (this.value.length > 4) this.value = this.value.slice(0,4)" type="number" maxlength="4">
+                        <input class="input-text input-text_number donate-form__another-amount" placeholder="Another amount"  type="number" maxlength="4" min="1" max="9999">
                     </div>
                     <div class="donate-form__period">
                         <div class="donate-form-period__item">

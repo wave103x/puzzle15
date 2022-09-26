@@ -1,8 +1,10 @@
+@charset 'utf-8';
+
 /*          first-screen         */
 
 .first-screen {
     min-height: 700px;
-    background: center -226px / cover no-repeat url(../../assets/images/panda_bg.jpg) #eee;
+    background: center -226px / cover no-repeat url('../../assets/images/panda_bg.jpg') #eee;
     position: relative;
     margin: 0 auto;
     margin-bottom: 140px;
@@ -36,7 +38,7 @@
 .button_type_first-screen {
     position: absolute;
     right: 8.6%;
-    bottom: 14%;
+    bottom: 14.5%;
 }
 
 
@@ -60,7 +62,7 @@
 }
 
 .backstage__img {
-    width: 52%;
+    width: 53%;
     height: fit-content;
 }
 
@@ -92,8 +94,8 @@
 .pets {
     padding-bottom: 100px;
     position: relative;
-    background: right bottom no-repeat url(../../assets/images/strelitzia-1.png),
-        left bottom no-repeat url(../../assets/images/palm_foto.png);
+    background: right bottom no-repeat url('../../assets/images/strelitzia-1.png'),
+        left bottom no-repeat url('../../assets/images/palm_foto.png');
 }
 
 .pets__layout {
@@ -115,6 +117,7 @@
     background-clip: content-box, border-box;
     position: relative;
     cursor: pointer;
+    overflow: hidden;
 }
 
 .pets-item__caption {
@@ -125,18 +128,19 @@
     justify-content: space-between;
     transition: 0.2s;
     background-color: var(--color-graylight);
-    z-index: 1;
+    /* z-index: 1; */
     left:-1px;
-    width: calc(100% - 32px);
-    border-radius: 5px;
-    border: 1px solid var(--color-orangemain);
+    width: calc(100% - 30px);
+    /* border-radius: 5px; */
+    /* border: 1px solid var(--color-orangemain); */
+    bottom: -76px;
 }
 
 .pets-item__img {
     border-radius: 3px;
     transition: 0.2s;
     position: relative;
-    z-index: 3;
+    /* z-index: 3; */
     display: block;
 }
 
@@ -146,14 +150,15 @@
 
 .pets__item:hover .pets-item__img {
     transform: scale(1.057);
+    filter: brightness(70%);
 }
 
 .pets__item:hover .pets-item__caption {
-    bottom: -66px;
+    bottom: 0;
 }
 
 .pets__item:hover {
-    z-index: 10;
+    /* z-index: 10; */
 }
 
 .pets__btn {
@@ -225,7 +230,7 @@
 }
 
 .pick-friend__how-works {
-    margin: 36px 0 70px;
+    margin: 36px 0 50px;
     display: flex;
     gap: 30px;
     justify-content: center;
@@ -250,6 +255,10 @@
     align-items: center;
     justify-content: center;
     margin-bottom: 30px;
+}
+
+.how-works-item__text {
+    max-width: 168px;
 }
 
 .how-works__arrow {
@@ -280,7 +289,7 @@
 
 .testimonials {
     padding-bottom: 180px;
-    background: right bottom no-repeat url(../../assets/images/leav.png);
+    background: right bottom no-repeat url('../../assets/images/leav.png');
 }
 
 .testimonials_h3 {
@@ -310,12 +319,15 @@
 
 .testimonials-item__header {
     margin: 13px;
+    margin-bottom: 8px;
+    margin-top: 11px;
     display: flex;
     gap: 10px;
 }
 
 .testimonials-item__header img {
     border-radius: 50%;
+    object-fit: contain;
 }
 
 .testimonials-item-header__subtext {
@@ -327,6 +339,7 @@
 .testimonials-layout__body {
     margin: 13px;
     margin-top: 0;
+    margin-bottom: 22px;
     color: var(--color-gray);
     overflow: hidden;
 }
