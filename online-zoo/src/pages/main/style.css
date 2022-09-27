@@ -4,7 +4,7 @@
 
 .first-screen {
     min-height: 700px;
-    background: center -226px / cover no-repeat url('../../assets/images/panda_bg.jpg') #eee;
+    background: center / cover no-repeat url('../../assets/images/panda_bg.jpg') #eee;
     position: relative;
     margin: 0 auto;
     margin-bottom: 140px;
@@ -26,13 +26,14 @@
 }
 
 .first-screen__circle {
-    width: 465px;
-    height: 465px;
+    width: 40%;
+    aspect-ratio: 1 / 1;
     border-radius: 50%;
     position: absolute;
     top: 2%;
     right: 9.3%;
-    background: linear-gradient(113.96deg, #F9804B 1.49%, #FE9013 101.44%);
+    background-image: linear-gradient(113.96deg, #F9804B 1.49%, #FE9013 101.44%);
+    background-position: center;
 }
 
 .button_type_first-screen {
@@ -46,6 +47,7 @@
 
 .backstage {
     position: relative;
+    margin-bottom: 173px;
 }
 
 .backstage__right-img {
@@ -57,18 +59,19 @@
 
 .backstage-content {
     display: flex;
-    gap: 7.5%;
-    margin-bottom: 173px;
+    justify-content: space-between;
 }
 
 .backstage__img {
-    /* width: 53%; */
-    height: fit-content;
+    width: 609px;
+    height: 403px;
+    background: center / cover url('../../assets/images/bamboo-cap.jpg');
 }
 
 .backstage__item {
     display: flex;
     flex-direction: column;
+    max-width: 465px;
 }
 
 .backstage__item h2 {
@@ -128,11 +131,8 @@
     justify-content: space-between;
     transition: 0.2s;
     background-color: var(--color-graylight);
-    /* z-index: 1; */
     left:-1px;
     width: calc(100% - 30px);
-    /* border-radius: 5px; */
-    /* border: 1px solid var(--color-orangemain); */
     bottom: -76px;
 }
 
@@ -193,14 +193,14 @@
 
 .button-arrow_left {
     top: 50%;
-    right: calc(100% + 20px);
-    transform: translateY(-50%);
+    left: -20px;
+    transform: translate(-100%, -50%);
 }
 
 .button-arrow_right {
     top: 50%;
-    left: calc(100% + 20px);
-    transform: translateY(-50%);
+    right: -20px;
+    transform: translate(100%, -50%);
 }
 
 
@@ -235,6 +235,7 @@
     gap: 30px;
     justify-content: center;
     align-items: flex-start;
+    position: relative;
 }
 
 .how-works__item {
@@ -263,6 +264,9 @@
 
 .how-works__arrow {
     margin-top: 62px;
+    width: 70px;
+    height: 35px;
+    background: center / cover no-repeat url('../../assets/icons/arrow.svg');
 }
 
 .pick-friend__content .h2{
@@ -334,6 +338,7 @@
     color: #bdbdbd;
     display: flex;
     gap: 6px;
+    flex-wrap: wrap;
 }
 
 .testimonials-layout__body {
@@ -364,4 +369,117 @@
     margin: 1px;
     height: 6px;
     border-radius: 3px;
+}
+
+
+
+/*      responsive       */
+
+@media screen and (max-width: 1330px) {
+    .pets__layout {
+        row-gap: 92px;
+    }
+
+    .button-arrow_left {
+        left: 40%;
+    }
+
+    .button-arrow_right {
+        right: 40%;
+    }
+}
+
+@media screen and (max-width: 1000px) {
+
+    .header__inner {
+        padding: 0 30px;
+    }
+
+    .first-screen__circle {
+        width: 36.7%;
+        top: -2%;
+    }
+
+    .first-screen {
+        min-height: 504px;
+        margin-bottom: 105px;
+    }
+
+    .first-screen__heading {
+        font-size: 85px;
+    }
+
+    .backstage {
+        margin-bottom: 142px;
+    }
+
+    .button_type_first-screen {
+        bottom: 47px;
+    }
+
+    .testimonials-item_4,
+    .backstage__right-img {
+        display: none;
+    }
+
+    .backstage__img {
+        width: 454px;
+        height: 408px;
+    }
+
+    .backstage__item {
+        max-width: 454px;
+    }
+
+    .pick-friend__content .font-subtitle {
+        margin-bottom: 20px;
+    }
+
+    .pick-friend__content .h3 {
+        margin-top: 40px;
+    }
+
+    .pick-friend__how-works {
+        margin-bottom: 70px;
+    }
+
+    .pick-friend__content {
+        padding-bottom: 50px;
+    }
+
+    .pick-friend {
+        margin-bottom: 100px;
+    }
+
+    .pets {
+        background: right bottom / 20% no-repeat url('../../assets/images/strelitzia-1.png'),
+        left bottom / 16% no-repeat url('../../assets/images/palm_foto2.png');
+    }
+
+    .pick-friend-content__inner {
+        margin-right: 45px;
+    }
+
+    .testimonials {
+        padding-bottom: 140px;
+    }
+}
+
+@media screen and (max-width: 640px) {
+    .how-works__arrow {
+        position: absolute;
+        width: 88px;
+        height: 28px;
+        margin: 0;
+        top: -15px;
+        background-image: url('../../assets/icons/arrow-style-2.svg');
+
+    }
+    .how-works__arrow_one {
+        left: 137px;
+    }
+
+    .how-works__arrow_two {
+        right: 137px;
+    }
 }

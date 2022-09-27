@@ -170,17 +170,20 @@
     color: var(--color-orangemain)
 }
 
-.donate-form__another-amount input::-webkit-inner-spin-button {
+.input-text_number::-webkit-inner-spin-button {
     appearance: none;
     -webkit-appearance: none;
 }
 
-.donate-form__another-amount {
-    position: relative;
+.input-text_number {
     -moz-appearance:textfield;
 }
 
-.donate-form__another-amount label {
+.donate-form__another-amount {
+    position: relative;
+}
+
+.donate-form__currency {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
@@ -188,6 +191,14 @@
     color: #929699;
     font-weight: 700;
     font-size: 20px;
+}
+
+.input-text_number:focus + label {
+    color: var(--color-green)
+}
+
+.input-text_number:invalid + label {
+    color: var(--color-red)
 }
 
 .donate-form__period {
@@ -206,13 +217,13 @@
     place-content: center;
     border: 1px solid var(--color-orangemain);
     border-radius: 50%;
-    transform: translateY(-2px);
+    transform: translateY(1px);
 }
 
 .donate-form-period__item input::after {
     content: '';
-    width: 8px;
-    height: 8px;
+    width: 16px;
+    height: 16px;
     background-color: var(--color-orangemain);
     transform: scale(0);
     transition: 0.2s;
@@ -221,6 +232,7 @@
 
 .donate-form-period__item input:checked::after {
     transform: scale(1);
+    background-color: var(--color-green);
 }
 
 .button_type_donate {

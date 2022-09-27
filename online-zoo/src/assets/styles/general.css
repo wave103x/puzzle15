@@ -21,32 +21,6 @@ body {
     color: inherit;
 }
 
-.input-text {
-    background-color: transparent;
-    border: 1px solid var(--color-orangemain);
-    border-radius: 2px;
-    padding: 10px;
-    max-height: 42px;
-    color: #bdbdbd;
-    box-sizing: border-box;
-}
-
-.input-text:focus {
-    border-color: var(--color-green);
-    outline: unset;
-}
-
-.input-text_subscribe {
-    margin-right: 5px;
-    min-width: 228px;
-}
-
-.input-text::placeholder {
-    font-size: 16px;
-    line-height: 1.4;
-    color: #bdbdbd;
-}
-
 .link-text {
     color: inherit;
     text-decoration: none;
@@ -104,6 +78,7 @@ body {
     min-height: inherit;
     margin: 0 auto;
     position: relative;
+    box-sizing: border-box;
 }
 
 .yellow-highlight {
@@ -167,8 +142,8 @@ body {
     background-color: black;
     width: 100%;
     color: white;
-    /* position: absolute;
-    z-index: 2; */
+    position: relative;
+    z-index: 2;
 }
 
 .header__inner {
@@ -210,7 +185,7 @@ body {
     height: 20px;
     left: 9px;
     bottom: 6px;
-    background: url('../../assets/icons/bamboo.svg')
+    background: url('../../assets/icons/bamboo.png')
 }
 
 .menu {
@@ -225,7 +200,7 @@ body {
 .menu__link {
     color: white;
     text-decoration: none;
-    font-weight: 500;
+    font-weight: 600;
     transition: 0.2s;
     background-image: unset;
 }
@@ -265,10 +240,11 @@ body {
     padding: 40px 0 50px;
     display: grid;
     justify-content: space-between;
-    grid-template-columns: repeat(3, 1fr);
+    /* grid-template-columns: repeat(3, 1fr); */
+    grid-template-columns: 300px 1fr 300px;
     grid-template-rows: 120px 100px 1fr;
     grid-template-areas:
-        "logo . subscribe"
+        "logo subscribe subscribe"
         "button . ."
         "social menu copyright";
 }
@@ -325,8 +301,10 @@ body {
     transition: 0.2s;
 }
 
-.link_footer-social:hover path {
-    fill: var(--color-orangemain);
+.link_footer-social:hover path,
+.link_footer-social:hover .social__name {
+    fill: var(--color-green);
+    color: var(--color-green)
 }
 
 .social__name {
@@ -337,14 +315,31 @@ body {
     margin-top: 14px;
 }
 
-.input-text:invalid + .submit-btn {
-    color: var(--color-red);
-    border-color: var(--color-red);
+.input-text {
+    background-color: transparent;
+    border: 1px solid var(--color-orangemain);
+    border-radius: 2px;
+    padding: 10px;
+    max-height: 42px;
+    color: #bdbdbd;
+    box-sizing: border-box;
 }
 
-.input-text:valid + .submit-btn {
-    color: var(--color-orangemain);
-    border-color: var(--color-bd);
+.input-text:focus {
+    border-color: var(--color-green);
+    outline: unset;
+    color: var(--color-bd);
+}
+
+.input-text_subscribe {
+    margin-right: 5px;
+    min-width: 228px;
+}
+
+.input-text::placeholder {
+    font-size: 16px;
+    line-height: 1.4;
+    color: var(--color-bd);
 }
 
 .submit-btn {
@@ -360,15 +355,26 @@ body {
     cursor: pointer;
 }
 
-.input-text:valid + .submit-btn:active {
+.submit-btn:active {
     color: var(--color-green);
     border-color: var(--color-green);
 }
 
-.input-text:default + .submit-btn {
+.input-text:invalid {
+    color: var(--color-red);
+    border-color: var(--color-red);
+}
+
+.input-text:invalid + .submit-btn {
+    color: var(--color-red);
+    border-color: var(--color-red);
+}
+
+.input-text:default+.submit-btn {
     color: black;
     border-color: black;
 }
+
 
 .input-text_number {
     width: 268px;
@@ -379,4 +385,46 @@ body {
 
 .margin0 {
     margin: 0;
+}
+
+@media screen and (max-width: 1330px) {
+    .wrapper {
+        padding: 0 30px;
+    }
+
+    .menu_type_footer {
+        gap: 48px;
+    }
+}
+
+@media screen and (max-width: 640px) {
+
+    .wrapper {
+        padding: 0 20px;
+    }
+
+    .footer__layout {
+        grid-template-columns: 1fr 1fr;
+        grid-template-areas:
+            "logo social"
+            "button social"
+            "menu copyright";
+    }
+
+    .subscribe_type_footer {
+        display: none;
+    }
+
+    .menu_type_footer {
+        gap: 37px;
+    }
+
+    .social_type_footer {
+        justify-self: end;
+        gap: 20px;
+    }
+
+    .social__name {
+        display: none;
+    }
 }
