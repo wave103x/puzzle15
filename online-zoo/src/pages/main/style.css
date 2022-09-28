@@ -134,7 +134,7 @@
     background-color: var(--color-graylight);
     left: -1px;
     width: calc(100% - 30px);
-    bottom: -100px;
+    bottom: -144px;
 }
 
 .pets-item__img {
@@ -725,19 +725,5 @@
         width: 240px;
     }
 
-    .logo_footer {
-        border: none;
-        max-width: unset;
-        justify-self: center;
-    }
 
-    .logo_footer .logo__h1::after {
-        left: 71px;
-    }
-
-    .footer__layout {
-        padding: 20px 0;
-        row-gap:30px;
-        grid-template-rows: auto;
-    }
 }

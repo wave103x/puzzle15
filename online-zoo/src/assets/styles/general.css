@@ -192,7 +192,8 @@ body {
 
 .menu {
     display: flex;
-    gap: 58px;
+    /* gap: 58px; */
+    gap: 5.8vw;
 }
 
 .menu_type_header {
@@ -250,12 +251,12 @@ body {
     padding: 40px 0 50px;
     display: grid;
     justify-content: space-between;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: 1fr 2fr 1fr;
     /* grid-template-columns: 300px 1fr 300px; */
     grid-template-rows: 120px 100px 1fr;
     grid-template-areas:
         "logo subscribe subscribe"
-        "button . ."
+        "button . copyright"
         "social menu copyright";
 }
 
@@ -289,6 +290,7 @@ body {
     grid-area: menu;
     align-self: end;
     justify-self: center;
+    flex-wrap: wrap;
 }
 
 .copyright_type_footer {
@@ -323,6 +325,7 @@ body {
 
 .subscribe {
     margin-top: 14px;
+    text-align: right;
 }
 
 .input-text {
@@ -432,6 +435,10 @@ body {
         display: none;
     }
 
+    .button_type_footer {
+        width: min(100%, 300px);
+    }
+
     .menu_type_footer {
         gap: 37px;
     }
@@ -479,6 +486,22 @@ body {
 @media screen and (max-width: 320px) {
     .wrapper {
         padding: 0 10px;
+    }
+
+    .footer__layout {
+        padding: 20px 0;
+        row-gap:30px;
+        grid-template-rows: auto;
+    }
+
+    .logo_footer {
+        border: none;
+        max-width: unset;
+        justify-self: center;
+    }
+
+    .logo_footer .logo__h1::after {
+        left: 71px;
     }
 
     .footer__layout {
