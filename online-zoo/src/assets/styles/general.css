@@ -136,10 +136,12 @@ body {
     appearance: button;
 }
 
+
+
 /*      header       */
 
 .header {
-    background-color: black;
+    background-color: #111115;
     width: 100%;
     color: white;
     position: relative;
@@ -227,21 +229,29 @@ body {
     align-self: flex-start;
 }
 
+.header__burger {
+    height: 34px;
+    border: none;
+    background-color: transparent;
+    margin-left: auto;
+    display: none;
+}
+
 
 /*      footer       */
+
 
 .footer {
     width: 100%;
     background-color: #111115;
-
 }
 
 .footer__layout {
     padding: 40px 0 50px;
     display: grid;
     justify-content: space-between;
-    /* grid-template-columns: repeat(3, 1fr); */
-    grid-template-columns: 300px 1fr 300px;
+    grid-template-columns: repeat(3, 1fr);
+    /* grid-template-columns: 300px 1fr 300px; */
     grid-template-rows: 120px 100px 1fr;
     grid-template-areas:
         "logo subscribe subscribe"
@@ -397,6 +407,13 @@ body {
     }
 }
 
+@media screen and (max-width: 1000px) {
+
+    .header__inner {
+        padding: 0 30px;
+    }
+}
+
 @media screen and (max-width: 640px) {
 
     .wrapper {
@@ -427,4 +444,59 @@ body {
     .social__name {
         display: none;
     }
+
+    .menu_type_header,
+    .copyright_type_header {
+        display: none;
+    }
+
+    .logo_tablet {
+        border: transparent;
+    }
+
+    .logo_tablet .logo__h1 {
+        font-size: 12px;
+    }
+
+    .logo_tablet .logo__h1::after {
+        width: 7px;
+        height: 13px;
+        left: 3px;
+        bottom: 3px;
+    }
+
+    .header__inner {
+        height: 34px;
+        padding: 0 20px;
+    }
+
+    .header__burger {
+        display: initial;
+    }
+}
+
+
+@media screen and (max-width: 320px) {
+    .wrapper {
+        padding: 0 10px;
+    }
+
+    .footer__layout {
+        grid-template-columns: 1fr;
+        grid-template-areas:
+            "logo"
+            "social"
+            "button"
+            "copyright"
+            "menu";
+    }
+
+    .social_type_footer {
+        flex-direction: row;
+        justify-self: center;
+    }
+
+
+
+
 }

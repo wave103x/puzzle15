@@ -48,6 +48,7 @@
 .backstage {
     position: relative;
     margin-bottom: 173px;
+    /* overflow: hidden; */
 }
 
 .backstage__right-img {
@@ -131,9 +132,9 @@
     justify-content: space-between;
     transition: 0.2s;
     background-color: var(--color-graylight);
-    left:-1px;
+    left: -1px;
     width: calc(100% - 30px);
-    bottom: -76px;
+    bottom: -100px;
 }
 
 .pets-item__img {
@@ -209,8 +210,8 @@
 
 .pick-friend {
     background-image:
-    linear-gradient(315.75deg, rgba(254, 210, 144, 0.7) 30.06%, #FEBDAB 100.95%, rgba(254, 210, 144, 0.7) 106.36%),
-    linear-gradient(315.75deg, rgba(254, 189, 171, 0.74) 30.06%, rgba(243, 169, 248, 0.66) 50.74%, #E0D8F0 80.49%, #EAF7FE 127.9%, #EAF7FE 149.54%);
+        linear-gradient(315.75deg, rgba(254, 210, 144, 0.7) 30.06%, #FEBDAB 100.95%, rgba(254, 210, 144, 0.7) 106.36%),
+        linear-gradient(315.75deg, rgba(254, 189, 171, 0.74) 30.06%, rgba(243, 169, 248, 0.66) 50.74%, #E0D8F0 80.49%, #EAF7FE 127.9%, #EAF7FE 149.54%);
     opacity: 0.9;
     padding: 70px 0 100px;
     margin-bottom: 140px;
@@ -269,21 +270,21 @@
     background: center / cover no-repeat url('../../assets/icons/arrow.svg');
 }
 
-.pick-friend__content .h2{
+.pick-friend__content .h2 {
     color: var(--color-orangemain);
     margin: 0 0 30px;
 }
 
-.pick-friend__content .font-subtitle{
+.pick-friend__content .font-subtitle {
     margin: 0 0 40px;
     align-self: flex-start;
 }
 
-.pick-friend__content .font-body{
+.pick-friend__content .font-body {
     margin: 0 0 10px;
 }
 
-.pick-friend__content .h3{
+.pick-friend__content .h3 {
     margin: 50px 0 0;
 }
 
@@ -358,8 +359,8 @@
     margin-bottom: 30px;
     padding: 1px;
     background-image:
-    linear-gradient(#F5F7F6, #F5F7F6),
-    linear-gradient(315.75deg, rgba(254, 189, 171, 0.74) 30.06%, rgba(243, 169, 248, 0.66) 50.74%, #E0D8F0 80.49%, #EAF7FE 127.9%, #EAF7FE 149.54%);
+        linear-gradient(#F5F7F6, #F5F7F6),
+        linear-gradient(315.75deg, rgba(254, 189, 171, 0.74) 30.06%, rgba(243, 169, 248, 0.66) 50.74%, #E0D8F0 80.49%, #EAF7FE 127.9%, #EAF7FE 149.54%);
     background-origin: border-box;
     background-clip: content-box, border-box;
 }
@@ -390,10 +391,6 @@
 }
 
 @media screen and (max-width: 1000px) {
-
-    .header__inner {
-        padding: 0 30px;
-    }
 
     .first-screen__circle {
         width: 36.7%;
@@ -441,6 +438,7 @@
 
     .pick-friend__how-works {
         margin-bottom: 70px;
+        flex-wrap: wrap;
     }
 
     .pick-friend__content {
@@ -453,7 +451,7 @@
 
     .pets {
         background: right bottom / 20% no-repeat url('../../assets/images/strelitzia-1.png'),
-        left bottom / 16% no-repeat url('../../assets/images/palm_foto2.png');
+            left bottom / 16% no-repeat url('../../assets/images/palm_foto2.png');
     }
 
     .pick-friend-content__inner {
@@ -475,11 +473,271 @@
         background-image: url('../../assets/icons/arrow-style-2.svg');
 
     }
+
     .how-works__arrow_one {
         left: 137px;
     }
 
     .how-works__arrow_two {
         right: 137px;
+    }
+
+    .first-screen__heading {
+        font-size: 54px;
+        line-height: 0.75;
+        max-width: 255px;
+        top: 48px;
+        right: 14px;
+    }
+
+    .first-screen {
+        min-height: 340px;
+        margin-bottom: 60px;
+    }
+
+    .first-screen__circle {
+        top: 12px;
+    }
+
+    .button_type_first-screen {
+        left: 20px;
+        bottom: 40px;
+    }
+
+    .backstage__img {
+        display: none;
+    }
+
+    .backstage__right-img {
+        display: initial;
+        right: 0;
+        top: 57%;
+        content: url("../../assets/images/flower_foto640.png")
+    }
+
+    .pets__layout {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .pets__item_disable {
+        display: none;
+    }
+
+    .pets {
+        background: right bottom / 25% no-repeat url('../../assets/images/strelitzia-1.png'),
+        left -15% bottom / 32% no-repeat url('../../assets/images/palm_foto2.png');
+    }
+
+    .pick-friend {
+        padding: 20px 0;
+        margin-bottom: 60px;
+    }
+
+    .pick-friend .wrapper {
+        padding: 0;
+    }
+
+    .testimonials__layout {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .testimonials-layout__body {
+        max-height: 36px;
+    }
+
+    .testimonials__scroll {
+        display: none;
+    }
+
+    .button_testimonials {
+        margin: 40px auto;
+        position: relative;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .testimonials {
+        padding-bottom: 80px;
+        background: right -8px bottom / 16% no-repeat url('../../assets/images/leav.png');
+    }
+}
+
+
+@media screen and (max-width: 320px) {
+
+    .pick-friend {
+        margin-bottom: 30px;
+    }
+
+    .pick-friend__how-works {
+        flex-direction: column;
+    }
+
+    .pets__layout {
+        grid-template-columns: 1fr;
+    }
+
+    .first-screen {
+        min-height: 187px;
+        margin-bottom: 90px;
+    }
+
+    .first-screen__heading {
+        font-size: 28px;
+        max-width: 128px;
+        top: 41px;
+        right: 10px;
+    }
+
+    .first-screen__circle {
+        top: 22px;
+        right: 38px;
+    }
+
+    .button_type_first-screen {
+        left: 10px;
+        bottom: -70px;
+    }
+
+    .backstage__item h2 {
+        font-size: 24px;
+        line-height: 1.2;
+    }
+
+    .backstage {
+        margin-bottom: 40px;
+
+    }
+
+    .backstage__right-img {
+        top: 67px;
+        content: url("../../assets/images/flower_foto320.png")
+    }
+
+    .backstage__item h2 {
+        margin-bottom: 10px;
+    }
+
+    .backstage__item .font-body {
+        margin-bottom: 20px;
+    }
+
+    .backstage__item .font-subtitle {
+        margin-bottom: 10px;
+    }
+
+    .pets__layout {
+        row-gap: 20px;
+        width: 95%;
+    }
+
+    .button-arrow {
+        display: none;
+    }
+
+    .pets__btn {
+        margin-top: 20px;
+    }
+
+    .pets {
+        padding-bottom: 60px;
+        background: right bottom / 25% no-repeat url('../../assets/images/strelitzia-1.png'),
+        left -5%  bottom / 22% no-repeat url('../../assets/images/palm_foto2.png');
+    }
+
+    .pick-friend__content {
+        padding-top: 20px;
+        padding-bottom: 40px;
+    }
+
+    .pick-friend-content__inner {
+        padding: 0;
+        margin: 0;
+        text-align: center;
+    }
+
+    .pick-friend__content .h2 {
+        font-size: 24px;
+        line-height: 1.2;
+        align-self: center;
+    }
+
+    .pick-hide {
+        display: none;
+    }
+
+    .pick-friend__content .font-subtitle {
+        font-size: 18px;
+    }
+
+    .pick-friend .wrapper {
+        padding: 0 10px;
+    }
+
+    .pick-friend__content .h3 {
+        margin-top: 20px;
+    }
+
+    .how-works-item__img {
+        margin-bottom: 10px;
+    }
+
+    .pick-friend__how-works {
+        gap: 32px;
+        margin-top: 20px;
+        margin-bottom: 30px;
+    }
+
+    .how-works__arrow {
+        transform: rotate(84deg);
+        right: -62px;
+        left: unset;
+    }
+
+    .how-works__arrow_one {
+        top: 194px;
+    }
+
+    .how-works__arrow_two {
+        top: 445px;
+    }
+
+    .how-works__item_2nd {
+        margin-bottom: -10px;
+    }
+
+    .testimonials {
+        padding-bottom: 60px;
+        background: right -45px bottom -30px / 30% no-repeat url('../../assets/images/leav_foto320.png');
+    }
+
+    .testimonials_h3 {
+        margin-bottom: 20px;
+    }
+
+    .testimonials__layout {
+        margin-bottom: 0;
+    }
+
+    .button_testimonials {
+        margin: 30px 0 0;
+        width: 240px;
+    }
+
+    .logo_footer {
+        border: none;
+        max-width: unset;
+        justify-self: center;
+    }
+
+    .logo_footer .logo__h1::after {
+        left: 71px;
+    }
+
+    .footer__layout {
+        padding: 20px 0;
+        row-gap:30px;
+        grid-template-rows: auto;
     }
 }
