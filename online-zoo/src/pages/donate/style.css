@@ -4,7 +4,7 @@
 .hero-image {
     background: center / cover no-repeat url(../../assets/images/panda_bg.jpg) #eee;
     width: 100%;
-    min-height: 385px;
+    min-height: 389px;
     position: relative;
     margin: 0 auto;
 }
@@ -245,17 +245,60 @@
 
 
 @media screen and (max-width: 1000px) {
+    .pick__information h3:first-child {
+        margin-bottom: 30px;
+    }
+
+    .pick-friend_h3 {
+        margin-bottom: 40px;
+    }
+
     .pick-content {
         padding: 20px 65px 45px;
     }
 
     .pick__diagram {
-        margin-top: 60px;
+        margin-top: 47px;
     }
 
     .pick {
         padding-bottom: 30px;
     }
+
+    .dinate-amount__item_hide:first-child {
+        display: none;
+    }
+
+    .donate-form__amount {
+        padding: 0 10px;
+    }
+
+    .donate-form__amount::after {
+        width: calc(100% - 20px);
+    }
+
+    .donate-amount__item label {
+        left: -22px;
+    }
+}
+
+@media screen and (max-width: 880px) {
+    .pick-content {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+}
+
+@media screen and (max-width: 600px) and (min-width: 320px) {
+    .pick__diagram {
+        width: 80%;
+    }
+    .pick-diagram-animal_panda {
+        width: 100%;
+        background-size: contain;
+    }
+
 }
 
 @media screen and (max-width: 640px) {
@@ -270,15 +313,19 @@
     }
 
     .pick__information .font-body {
-        margin-bottom: 30px;
+        margin-bottom: 0;
     }
 
     .pick-friend_h3 {
         margin-bottom: 30px;
     }
 
+    .pick__information h3:last-child {
+        margin-top: 26px;
+    }
+
     .pick-content {
-        padding: 20px 0 30px;
+        padding: 31px 0 30px;
     }
 
     .pick-content>.font-body {
@@ -292,6 +339,32 @@
     .input-text_number {
         width: 180px;
         min-height: 42px;
+    }
+
+    .pick {
+        padding-top: 32px;
+        padding-bottom: 50px;
+    }
+
+    .pick_font-subtitle {
+        text-align: center;
+    }
+
+    .pick__diagram {
+        margin-top: 76px;
+        margin-bottom: 11px;
+    }
+
+    .donate-form__amount {
+        padding: 0 35px;
+    }
+
+    .donate-form__amount::after {
+        width: calc(100% - 70px);
+    }
+
+    .donate-amount__item label {
+        left: -32px;
     }
 }
 
@@ -323,11 +396,13 @@
 
     .pick-content {
         padding: 20px 0;
+        gap: 10px;
     }
 
     .pick__diagram {
         gap: 26px;
-        margin-bottom: 0;
+        margin-bottom: -17px;
+        margin-top: 10px;
     }
 
     .pick-diagram__count {
@@ -353,7 +428,7 @@
     .donate-form__amount {
         height: 13px;
         padding: 0 18px;
-        margin-bottom: 30px;
+        margin-bottom: 38px;
     }
 
     .donate-form__amount input[type="radio"] {
@@ -383,10 +458,18 @@
     }
 
     .pick-content>.font-body {
-        margin: -30px 0 -8px;
+        margin: 0;
     }
 
     .button_type_donate+p {
         white-space: nowrap;
+    }
+
+    .pick__information h3:last-child {
+        margin-bottom: 30px;
+    }
+
+    .pick {
+        padding-bottom: 20px;
     }
 }

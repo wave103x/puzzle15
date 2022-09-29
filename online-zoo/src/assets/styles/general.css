@@ -157,7 +157,6 @@ body {
 }
 
 .logo {
-    max-width: 82px;
     border: 1px solid white;
     border-radius: 2px;
     height: fit-content;
@@ -178,6 +177,7 @@ body {
 
 .logo_type_header {
     margin-right: 63px;
+    width: 82px;
 }
 
 .logo__h1::after {
@@ -236,6 +236,7 @@ body {
     background-color: transparent;
     margin-left: auto;
     display: none;
+    padding: 0;
 }
 
 
@@ -378,7 +379,7 @@ body {
     border-color: var(--color-red);
 }
 
-.input-text:invalid + .submit-btn {
+.input-text:invalid+.submit-btn {
     color: var(--color-red);
     border-color: var(--color-red);
 }
@@ -408,12 +409,41 @@ body {
     .menu_type_footer {
         gap: 48px;
     }
+
+    .header__inner {
+        padding: 0 30px;
+    }
 }
 
 @media screen and (max-width: 1000px) {
 
     .header__inner {
         padding: 0 30px;
+    }
+
+    .menu_type_header {
+        gap: 48px;
+    }
+
+    .subscribe_type_footer {
+        margin-right: 17px;
+    }
+
+    .footer__layout {
+        grid-template-columns: 1fr 2fr 300px;
+    }
+}
+
+@media screen and (max-width: 880px) {
+    .footer__layout {
+        grid-template-columns: 1fr 2fr 1fr;
+    }
+    .wrapper {
+        padding: 0 20px;
+    }
+
+    .menu_type_header {
+        flex-wrap: wrap;
     }
 }
 
@@ -429,6 +459,8 @@ body {
             "logo social"
             "button social"
             "menu copyright";
+        padding-top: 14px;
+        grid-template-rows: 84px 122px 1fr;
     }
 
     .subscribe_type_footer {
@@ -459,6 +491,7 @@ body {
 
     .logo_tablet {
         border: transparent;
+        width: initial;
     }
 
     .logo_tablet .logo__h1 {
@@ -490,7 +523,7 @@ body {
 
     .footer__layout {
         padding: 20px 0;
-        row-gap:30px;
+        row-gap: 30px;
         grid-template-rows: auto;
     }
 
@@ -517,6 +550,10 @@ body {
     .social_type_footer {
         flex-direction: row;
         justify-self: center;
+    }
+
+    .header__inner {
+        padding: 0 10px;
     }
 
 

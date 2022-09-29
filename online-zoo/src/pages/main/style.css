@@ -61,11 +61,13 @@
 .backstage-content {
     display: flex;
     justify-content: space-between;
+    gap: 2vw;
 }
 
 .backstage__img {
     width: 609px;
     height: 403px;
+    min-width: 40%;
     background: center / cover url('../../assets/images/bamboo-cap.jpg');
 }
 
@@ -328,9 +330,11 @@
     margin-top: 11px;
     display: flex;
     gap: 10px;
+    align-items: center;
 }
 
 .testimonials-item__header img {
+    height: min-content;
     border-radius: 50%;
     object-fit: contain;
 }
@@ -382,28 +386,36 @@
     }
 
     .button-arrow_left {
-        left: 40%;
+        left: 41%;
     }
 
     .button-arrow_right {
-        right: 40%;
+        right: 41%;
+    }
+
+    .backstage__right-img {
+        display: none;
     }
 }
 
 @media screen and (max-width: 1000px) {
 
     .first-screen__circle {
-        width: 36.7%;
+        width: 367px;
         top: -2%;
+        right: 177px;
     }
 
     .first-screen {
         min-height: 504px;
-        margin-bottom: 105px;
+        margin-bottom: 100px;
     }
 
     .first-screen__heading {
         font-size: 85px;
+        right: 85px;
+        top: 42px;
+        width: 400px;
     }
 
     .backstage {
@@ -411,6 +423,7 @@
     }
 
     .button_type_first-screen {
+        right: 137px;
         bottom: 47px;
     }
 
@@ -433,23 +446,31 @@
     }
 
     .pick-friend__content .h3 {
-        margin-top: 40px;
+        margin-top: 24px;
     }
 
     .pick-friend__how-works {
-        margin-bottom: 70px;
+        margin-bottom: 63px;
         flex-wrap: wrap;
     }
 
     .pick-friend__content {
         padding-bottom: 50px;
+        padding-top: 30px;
+    }
+
+    .pick-friend__content .h2 {
+        margin-bottom: 24px;
     }
 
     .pick-friend {
         margin-bottom: 100px;
+        padding: 30px 0;
+        padding-bottom: 50px;
     }
 
     .pets {
+        padding-bottom: 140px;
         background: right bottom / 20% no-repeat url('../../assets/images/strelitzia-1.png'),
             left bottom / 16% no-repeat url('../../assets/images/palm_foto2.png');
     }
@@ -461,9 +482,18 @@
     .testimonials {
         padding-bottom: 140px;
     }
+
+    .testimonials_h3 {
+        margin-bottom: 30px;
+    }
+
+    .testimonials__scroll {
+        max-width: 390px;
+        margin-bottom: 47px;
+    }
 }
 
-@media screen and (max-width: 640px) {
+@media screen and (max-width: 850px) {
     .how-works__arrow {
         position: absolute;
         width: 88px;
@@ -475,12 +505,16 @@
     }
 
     .how-works__arrow_one {
-        left: 137px;
+        left: 23%;
     }
 
     .how-works__arrow_two {
-        right: 137px;
+        right: 26%;
     }
+}
+
+@media screen and (max-width: 640px) {
+
 
     .first-screen__heading {
         font-size: 54px;
@@ -497,6 +531,8 @@
 
     .first-screen__circle {
         top: 12px;
+        width: 237px;
+        right: 71px;
     }
 
     .button_type_first-screen {
@@ -511,8 +547,24 @@
     .backstage__right-img {
         display: initial;
         right: 0;
-        top: 57%;
+        top: 178px;
         content: url("../../assets/images/flower_foto640.png")
+    }
+
+    .backstage__item .font-body {
+        margin-bottom: 28px;
+    }
+
+    .backstage__item .font-subtitle {
+        margin-bottom: 20px;
+    }
+
+    .backstage__item {
+        max-width: 491px;
+    }
+
+    .backstage {
+        margin-bottom: 77px;
     }
 
     .pets__layout {
@@ -533,6 +585,14 @@
         margin-bottom: 60px;
     }
 
+    .button-arrow_left {
+        left: 48%;
+    }
+
+    .button-arrow_right {
+        right: 48%;
+    }
+
     .pick-friend .wrapper {
         padding: 0;
     }
@@ -544,6 +604,7 @@
 
     .testimonials-layout__body {
         max-height: 36px;
+        margin-bottom: 9px;
     }
 
     .testimonials__scroll {
@@ -555,11 +616,93 @@
         position: relative;
         left: 50%;
         transform: translateX(-50%);
+        width: 240px;
+        margin: 24px auto 0;
     }
 
     .testimonials {
         padding-bottom: 80px;
         background: right -8px bottom / 16% no-repeat url('../../assets/images/leav.png');
+    }
+
+    .pets__btn {
+        margin-top: 60px;
+    }
+
+    .pets {
+        padding-bottom: 104px;
+    }
+
+    .pick-friend__content .h2 {
+        font-size: 42px;
+        margin-bottom: 17px;
+    }
+
+    .pick-friend__content {
+        padding-top: 11px;
+        padding-bottom: 60px;
+    }
+
+    .pick-friend-content__inner {
+        margin: 0;
+        padding: 0 20px;
+    }
+
+    .pick-friend__content .font-subtitle {
+        margin-bottom: 16px;
+    }
+
+    .pick-friend__content .h3 {
+        margin-top: 15px;
+    }
+
+    .pick-friend__how-works {
+        margin-top: 20px;
+        margin-bottom: 28px;
+        gap: 40px;
+        margin-left: -14px;
+    }
+}
+
+
+@media screen and (max-width: 600px) {
+
+    .pick-friend__how-works {
+        flex-direction: column;
+    }
+    .how-works__arrow {
+        transform: rotate(84deg);
+        right: -62px;
+        left: unset;
+    }
+
+    .how-works__arrow_one {
+        top: 194px;
+    }
+
+    .how-works__arrow_two {
+        top: 445px;
+    }
+
+    .how-works__item_2nd {
+        margin-bottom: -10px;
+    }
+
+    .how-works-item__img {
+        margin-bottom: 10px;
+    }
+
+    .pick-friend__how-works {
+        gap: 32px;
+        margin-top: 20px;
+        margin-bottom: 30px;
+    }
+}
+
+@media screen and (max-width: 520px) {
+    .backstage__right-img {
+        top: 67px;
+        content: url("../../assets/images/flower_foto320.png")
     }
 }
 
@@ -571,7 +714,8 @@
     }
 
     .pick-friend__how-works {
-        flex-direction: column;
+        margin-left: 0;
+        gap: 27px;
     }
 
     .pets__layout {
@@ -580,7 +724,7 @@
 
     .first-screen {
         min-height: 187px;
-        margin-bottom: 90px;
+        margin-bottom: 106px;
     }
 
     .first-screen__heading {
@@ -593,6 +737,7 @@
     .first-screen__circle {
         top: 22px;
         right: 38px;
+        width: 120px;
     }
 
     .button_type_first-screen {
@@ -606,7 +751,7 @@
     }
 
     .backstage {
-        margin-bottom: 40px;
+        margin-bottom: 32px;
 
     }
 
@@ -676,35 +821,9 @@
     }
 
     .pick-friend__content .h3 {
-        margin-top: 20px;
-    }
-
-    .how-works-item__img {
-        margin-bottom: 10px;
-    }
-
-    .pick-friend__how-works {
-        gap: 32px;
-        margin-top: 20px;
-        margin-bottom: 30px;
-    }
-
-    .how-works__arrow {
-        transform: rotate(84deg);
-        right: -62px;
-        left: unset;
-    }
-
-    .how-works__arrow_one {
-        top: 194px;
-    }
-
-    .how-works__arrow_two {
-        top: 445px;
-    }
-
-    .how-works__item_2nd {
-        margin-bottom: -10px;
+        margin-top: 0;
+        font-size: 24px;
+        line-height: 1.2;
     }
 
     .testimonials {
@@ -713,7 +832,8 @@
     }
 
     .testimonials_h3 {
-        margin-bottom: 20px;
+        margin-bottom: 16px;
+        font-size: 24px;
     }
 
     .testimonials__layout {
@@ -725,5 +845,8 @@
         width: 240px;
     }
 
+    .pets__item {
+        max-height: 285px;
+    }
 
 }

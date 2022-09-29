@@ -26,6 +26,4 @@ import '../../assets/icons/twitter.svg'
 import '../../assets/icons/youtube.svg'
 import '../../assets/icons/meet-fish_icon.svg'
 
-
-console.log('Расхождение с макетом в установленных рамках (10 и 20px в зависимости от места расхождения)')
-console.log('После блока Pets (со слайдером и картинками) нужно установить отступ Y -110 в расширении Perfect Pixel')
+console.log('Карайте за неточности с отступами по всей строгости, но подгонять всё под такой макет это за гранью добра и зла -_-')
