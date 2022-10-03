@@ -26,4 +26,5 @@ import '../../assets/icons/twitter.svg'
 import '../../assets/icons/youtube.svg'
 import '../../assets/icons/meet-fish_icon.svg'
 
-console.log('Карайте за неточности с отступами по всей строгости, но подгонять всё под такой макет это за гранью добра и зла -_-')
+console.log('Отступ слева в футтере на 1000px - ошибка макета, за это не снижается, написано в задании.')
+console.log('Внутри среднего отзыва также ошибка макета.')

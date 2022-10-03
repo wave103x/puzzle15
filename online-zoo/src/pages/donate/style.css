@@ -133,7 +133,7 @@
     cursor: pointer;
 }
 
-.donate-form__amount input[type="radio"] {
+.donate-form__amount input {
     appearance: none;
     background-color: #FFEE2E;
     height: 10px;
@@ -146,7 +146,7 @@
     transition: 0.2s;
 }
 
-.donate-form__amount input[type="radio"]::before {
+.donate-form__amount input::before {
     content: "";
     width: 40px;
     height: 40px;
@@ -156,17 +156,17 @@
     transition: 0.2s transform;
 }
 
-.donate-form__amount input[type="radio"]:checked::before {
+.donate-form__amount input:checked::before {
     transform: scale(1);
     border-color: var(--color-orangemain);
 }
 
-.donate-form__amount input[type="radio"]:checked {
+.donate-form__amount input:checked {
     outline: 2px solid var(--color-orangemain);
     outline-offset: 7px;
 }
 
-.donate-form__amount input[type="radio"]:checked+label {
+.donate-form__amount input:checked+label {
     color: var(--color-orangemain)
 }
 
@@ -177,6 +177,7 @@
 
 .input-text_number {
     -moz-appearance: textfield;
+    padding-top:4px;
 }
 
 .donate-form__another-amount {
@@ -249,6 +250,15 @@
         margin-bottom: 30px;
     }
 
+    .pick-friend_h2 {
+        margin-right: 10px;
+    }
+
+    .pick_font-subtitle {
+        margin-top: -10px;
+        margin-left: -20px;
+    }
+
     .pick-friend_h3 {
         margin-bottom: 40px;
     }
@@ -258,11 +268,15 @@
     }
 
     .pick__diagram {
-        margin-top: 47px;
+        margin-top: 57px;
     }
 
     .pick {
         padding-bottom: 30px;
+    }
+
+    .button_type_donate {
+        margin-bottom: 19px;
     }
 
     .dinate-amount__item_hide:first-child {
@@ -306,6 +320,10 @@
         min-height: 335px;
     }
 
+    .pick-friend_h2 {
+        margin: 0;
+    }
+
     .pick__information h3.color_white {
         font-size: 24px;
         line-height: 1.2;
@@ -330,6 +348,16 @@
 
     .pick-content>.font-body {
         margin-left: 10px;
+        margin-top: 10px;
+    }
+
+    .pick__donate-form {
+        margin-top: -16px;
+    }
+
+    .donate-form__period {
+        margin-top: 22px;
+        margin-left: -15px;
     }
 
     .dinate-amount__item_hide {
@@ -343,11 +371,12 @@
 
     .pick {
         padding-top: 32px;
-        padding-bottom: 50px;
+        padding-bottom: 46px;
     }
 
     .pick_font-subtitle {
         text-align: center;
+        margin: 0;
     }
 
     .pick__diagram {
@@ -403,6 +432,11 @@
         gap: 26px;
         margin-bottom: -17px;
         margin-top: 10px;
+        width: 100%;
+    }
+
+    .pick__donate-form {
+        margin-top: -3px;
     }
 
     .pick-diagram__count {
@@ -411,6 +445,12 @@
 
     .pick__diagram .font-body {
         font-size: 9px;
+    }
+
+    .donate-form__period {
+        margin-top: 18px;
+        margin-left: -15px;
+        margin-bottom: 15px;
     }
 
     .pick-diagram-animal_panda {

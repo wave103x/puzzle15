@@ -1,4 +1,5 @@
 @charset 'utf-8';
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 
 body {
     font: 16px/1.4 Roboto, Arial, sans-serif;
@@ -95,19 +96,21 @@ body {
     transition: 0.2s;
     height: fit-content;
     text-align: center;
+    box-sizing: border-box;
 }
 
 .button_round_25 {
     border-radius: 25px;
     width: 300px;
     padding: 16px 0;
-    max-height: 54px;
+    height: 54px;
 }
 
 .button_round_5 {
     border-radius: 5px;
     width: 300px;
     padding: 16px 0;
+    height: 54px;
 }
 
 .button_disabled {
@@ -192,8 +195,8 @@ body {
 
 .menu {
     display: flex;
-    /* gap: 58px; */
-    gap: 5.8vw;
+    gap: 58px;
+    /* gap: 5.8vw; */
 }
 
 .menu_type_header {
@@ -429,21 +432,29 @@ body {
         margin-right: 17px;
     }
 
+    .subs_donate {
+        margin-right: 32px;
+    }
+
     .footer__layout {
         grid-template-columns: 1fr 2fr 300px;
+        /* margin-left: 7px; */
     }
 }
 
 @media screen and (max-width: 880px) {
     .footer__layout {
         grid-template-columns: 1fr 2fr 1fr;
+        margin-left: unset;
     }
+
     .wrapper {
         padding: 0 20px;
     }
 
     .menu_type_header {
         flex-wrap: wrap;
+        gap: 3vw;
     }
 }
 
@@ -460,7 +471,7 @@ body {
             "button social"
             "menu copyright";
         padding-top: 14px;
-        grid-template-rows: 84px 122px 1fr;
+        grid-template-rows: 84px 119px 1fr;
     }
 
     .subscribe_type_footer {
@@ -469,6 +480,8 @@ body {
 
     .button_type_footer {
         width: min(100%, 300px);
+        min-height: 54px;
+        height: fit-content;
     }
 
     .menu_type_footer {
@@ -482,6 +495,10 @@ body {
 
     .social__name {
         display: none;
+    }
+
+    .social__logo {
+        margin-right: 0;
     }
 
     .menu_type_header,
@@ -522,7 +539,7 @@ body {
     }
 
     .footer__layout {
-        padding: 20px 0;
+        padding: 17px 0;
         row-gap: 30px;
         grid-template-rows: auto;
     }
@@ -550,12 +567,17 @@ body {
     .social_type_footer {
         flex-direction: row;
         justify-self: center;
+        gap: 30px;
     }
 
     .header__inner {
         padding: 0 10px;
     }
 
+    .menu_type_footer {
+        gap: 30px;
+        margin-top: -4px;
+    }
 
 
 
