@@ -194,11 +194,13 @@
     font-size: 20px;
 }
 
-.input-text_number:focus+label {
+.input-text_number:focus+label,
+.input-text_number:focus {
     color: var(--color-green)
 }
 
-.input-text_number:invalid+label {
+.input-text_number:invalid+label,
+.input-text_number:invalid {
     color: var(--color-red)
 }
 

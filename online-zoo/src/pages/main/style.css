@@ -692,6 +692,24 @@
         margin-bottom: 11px;
     }
 
+    .testimonial_popup {
+        z-index: 20;
+        opacity: 1;
+        max-width: 267px;
+        max-height: unset;
+    }
+
+    .testimonial_popup .testimonials-layout__body {
+        max-height: unset;
+        margin-bottom: 11px;
+    }
+
+    .overlay-x-icon {
+        position: fixed;
+        top: 24px;
+        right: 24px;
+    }
+
 }
 
 
