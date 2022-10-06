@@ -145,10 +145,12 @@
     position: relative;
     /* z-index: 3; */
     display: block;
+    height: 100%;
 }
 
 .pets-item__img-wrapper {
     overflow: hidden;
+    height: 100%;
 }
 
 .pets__item:hover .pets-item__img {

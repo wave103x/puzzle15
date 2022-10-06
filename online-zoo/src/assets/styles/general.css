@@ -472,6 +472,7 @@ body {
             "menu copyright";
         padding-top: 14px;
         grid-template-rows: 84px 119px 1fr;
+        padding-bottom: 12px;
     }
 
     .subscribe_type_footer {
