@@ -104,13 +104,31 @@
         left bottom no-repeat url('../../assets/images/palm_foto.png');
 }
 
+.pets__wrapper {
+    position: relative;
+}
+
+.pets__container {
+    position: relative;
+    display: flex;
+    overflow: hidden;
+}
+
 .pets__layout {
     width: 100%;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 30px;
-    position: relative;
+    position: absolute;
+    transition: 0.2s;
+    left: 0;
+    right: 0;
+    will-change: transform;
 }
+
+
+
+
 
 .pets__item {
     padding: 0;
@@ -185,6 +203,8 @@
     color: white;
     cursor: pointer;
     transition: 0.2s;
+    transform: translateZ(0);
+    z-index: 20;
 }
 
 
@@ -560,7 +580,6 @@
 
     .button_type_first-screen {
         left: 20px;
-        /* bottom: 40px; */
         bottom: 6.5vw;
     }
 
