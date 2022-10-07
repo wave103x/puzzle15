@@ -696,12 +696,13 @@
         z-index: 20;
         opacity: 1;
         max-width: 267px;
-        max-height: unset;
+        max-height: 80vh;
     }
 
     .testimonial_popup .testimonials-layout__body {
         max-height: unset;
         margin-bottom: 11px;
+        overflow: auto;
     }
 
     .overlay-x-icon {
