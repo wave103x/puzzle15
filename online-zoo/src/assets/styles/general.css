@@ -671,4 +671,8 @@ body {
         gap: 30px;
         margin-top: -4px;
     }
+
+    .button_round_25 {
+        width: 100%;
+    }
 }

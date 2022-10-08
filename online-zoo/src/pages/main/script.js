@@ -12,6 +12,7 @@ import pet4 from '../../assets/images/pets4.jpg'
 import pet5 from '../../assets/images/pets5.jpg'
 import pet6 from '../../assets/images/pets6.jpg'
 import pet7 from '../../assets/images/krok.jpg'
+import pet8 from '../../assets/images/pets7.jpg'
 import '../../assets/images/flower_foto1.png'
 import '../../assets/images/palm_foto.png'
 import userImg1 from '../../assets/images/user2.jpg'
@@ -111,11 +112,12 @@ function Pet(imgSrc, name, desc, iconSrc) {
 const panda = new Pet(pet1, 'GIANT PANDAS', 'Native to Southwest China', banana);
 const eagle = new Pet(pet2, 'eagles', 'Native to South America', meat);
 const gorilla = new Pet(pet3, 'Gorillas', 'Native to Congo', banana);
+const gorillaTwo = new Pet(pet8, 'Gorillas', 'Native to Congo', banana);
 const sloth = new Pet(pet4, 'Two-toed Sloth', 'Mesoamerica, South America', banana);
 const chester = new Pet(pet5, 'cheetahs', 'Native to Africa', meat);
 const penguin = new Pet(pet6, 'Penguins', 'Native to Antarctica', meat);
 const krok = new Pet(pet7, 'Alligators', 'Native to Southeastern U. S.', meat);
-const petsArr = [panda, eagle, gorilla, sloth, chester, penguin, krok];
+const petsArr = [panda, eagle, gorilla, sloth, chester, penguin, krok, gorillaTwo];
 
 //create and set position of initial slides
 let leftLayout = createLayout(petsArr, 'append');
@@ -127,6 +129,7 @@ midLayout.style.position = 'relative';
 midLayout.style.left = '0%';
 rightLayout.style.left = '105%';
 
+
 //shift slides via clicking on arrow buttons
 rightArrowPets.onclick = shiftRight;
 leftArrowPets.onclick = shiftLeft;
@@ -136,14 +139,14 @@ leftArrowPets.onclick = shiftLeft;
 function createLayout(arrOfPets, whatPend) {
     const petsLayout = document.createElement('div');
     petsLayout.className = 'pets__layout';
-    if (whatPend === 'append') petsContainer.append(petsLayout);
-    if (whatPend ==='prepend') petsContainer.prepend(petsLayout);
     randomizeArr(arrOfPets);
     let tempPets = arrOfPets.slice(0,6);
     tempPets.length = 6;
     tempPets.forEach(e => createPet(e, petsLayout));
-    petsLayout.children[0].classList.add('pets__item_disable')
-    petsLayout.children[1].classList.add('pets__item_disable')
+    petsLayout.children[0].classList.add('pets__item_disable');
+    petsLayout.children[1].classList.add('pets__item_disable');
+    if (whatPend === 'append') petsContainer.append(petsLayout);
+    if (whatPend ==='prepend') petsContainer.prepend(petsLayout);
     return petsLayout;
 }
 
@@ -171,9 +174,11 @@ function shiftRight() {
 
     setTimeout(() => {
         slides[0].remove();
-        slides[1].style.position = 'relative';
-        slides[2].style.position = 'absolute';
+        slides[1].remove();
+        slides[2].style.position = 'relative';
+        let left = createLayout(petsArr, 'prepend');
         let right = createLayout(petsArr, 'append');
+        left.style.left = '-105%';
         right.style.left = '105%';
         rightArrowPets.onclick = shiftRight;
     }, 200);
@@ -187,11 +192,13 @@ function shiftLeft() {
     slides[2].style.left = parseInt(slides[2].style.left) + 105 + '%';
 
     setTimeout(() => {
+        slides[1].remove();
         slides[2].remove();
-        slides[0].style.position = 'absolute';
-        slides[1].style.position = 'relative';
+        slides[0].style.position = 'relative';
         let left = createLayout(petsArr, 'prepend');
+        let right = createLayout(petsArr, 'append');
         left.style.left = '-105%';
+        right.style.left = '105%';
         leftArrowPets.onclick = shiftLeft;
     }, 200);
 }
@@ -244,6 +251,7 @@ window.addEventListener('resize', function(e) {
     drugInput();
     if (this.innerWidth < 1000) testimonialRangeInput.max = '8';
     else testimonialRangeInput.max = '7';
+    if (this.innerWidth <= 640) testimonialLayout.style.left = 0;
 })
 
 //move testimonials via drugging input range
