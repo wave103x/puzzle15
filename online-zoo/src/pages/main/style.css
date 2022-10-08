@@ -326,16 +326,23 @@
     margin: 0 0 47px;
 }
 
+.testimonials__content {
+    overflow: hidden;
+}
+
 .testimonials__layout {
     display: flex;
     gap: 30px;
-    width: 100%;
     margin-bottom: 20px;
+    position: relative;
+    left: 0;
+    transition: 0.2s;
 }
 
 .testimonials-layout__item {
     padding: 2px;
-    width: 100%;
+    width: calc(25% - 27px);
+    flex-shrink: 0;
     max-height: 390px;
     display: flex;
     flex-direction: column;
@@ -371,31 +378,39 @@
 .testimonials-layout__body {
     margin: 13px;
     margin-top: 0;
-    margin-bottom: 22px;
+    margin-bottom: 16px;
     color: var(--color-gray);
     overflow: hidden;
 }
 
-.testimonials__scroll {
-    width: 100%;
-    max-width: 600px;
+.testimonials__range {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 600px;
+    margin: 20px auto 30px;
     height: 8px;
-    margin: 0 auto;
     border-radius: 4px;
-    margin-bottom: 30px;
     padding: 1px;
     background-image:
-        linear-gradient(#F5F7F6, #F5F7F6),
-        linear-gradient(315.75deg, rgba(254, 189, 171, 0.74) 30.06%, rgba(243, 169, 248, 0.66) 50.74%, #E0D8F0 80.49%, #EAF7FE 127.9%, #EAF7FE 149.54%);
+    linear-gradient(#F5F7F6, #F5F7F6),
+    linear-gradient(315.75deg, rgba(254, 189, 171, 0.74) 30.06%, rgba(243, 169, 248, 0.66) 50.74%, #E0D8F0 80.49%, #EAF7FE 127.9%, #EAF7FE 149.54%);
     background-origin: border-box;
     background-clip: content-box, border-box;
+    display: block;
+    cursor: pointer;
 }
 
-.testimonials-scroll__bar {
-    width: 115px;
-    margin: 1px;
+.testimonials__range::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    background-color: var(--color-orangemain);
+    border-radius: 4px;
+    width: 12.5%;
     height: 6px;
-    border-radius: 3px;
+}
+
+.testimonials__range::-webkit-slider-thumb:hover {
+    background-color: var(--color-green);
 }
 
 
@@ -526,13 +541,13 @@
         margin-bottom: 30px;
     }
 
-    .testimonials__scroll {
+    .testimonials__range {
         max-width: 390px;
         margin-bottom: 49px;
     }
 
-    .testimonials-scroll__bar {
-        width: 75px;
+    .testimonials-layout__item {
+        width: calc(34% - 30px);
     }
 }
 
@@ -558,7 +573,9 @@
 
 @media screen and (max-width: 640px) {
 
-
+    .testimonials-layout__item {
+        width: 100%;
+    }
     .first-screen__heading {
         font-size: 54px;
         line-height: 0.75;
@@ -650,7 +667,8 @@
         gap: 15px;
     }
 
-    .testimonials__scroll {
+    .testimonials__range,
+    .testimonial_hide {
         display: none;
     }
 
@@ -726,7 +744,7 @@
 
     .overlay-x-icon {
         position: fixed;
-        top: 24px;
+        top: 54px;
         right: 24px;
     }
 
