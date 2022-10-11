@@ -50,6 +50,10 @@ radiosAmount.addEventListener('click', (event) => {
 
 
 anotherAmountInput.addEventListener('input', () => {
+    radioBtnsAmount.forEach(e => {
+        if (e !== anotherAmountInput.value) e.checked = false;
+    })
+    
     if (anotherAmountInput.value.length > 4) {
         anotherAmountInput.value = anotherAmountInput.value.slice(0, 4);
     }
@@ -59,4 +63,5 @@ anotherAmountInput.addEventListener('input', () => {
         choosenElement.checked = true;
         anotherAmountInput.value = choosenElement.value;
     }
+
 })

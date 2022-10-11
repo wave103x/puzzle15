@@ -409,6 +409,15 @@
     height: 6px;
 }
 
+.testimonials__range::-moz-range-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    background-color: var(--color-orangemain);
+    border-radius: 4px;
+    width: 12.5%;
+    height: 6px;
+}
+
 .testimonials__range::-webkit-slider-thumb:hover {
     background-color: var(--color-green);
 }
