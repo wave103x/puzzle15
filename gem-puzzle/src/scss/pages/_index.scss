@@ -1,4 +1,32 @@
 body {
-    background-color: tomato;
+    background-color: darkslategrey;
     font: 16px/1.4 Roboto, Arial, sans-serif;
+
+}
+
+.container {
+    margin: 2rem;
+}
+
+.cell {
+    background-color: lightcoral;
+    color: darkslategray;
+    font-weight: 500;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    user-select: none;
+}
+
+.cell_empty {
+    background-color: transparent;
+}
+
+
+.game-grid {
+    display: grid;
+    width: 30%;
+    gap: 4px;
+    margin: 0 auto;
 }
