@@ -30,3 +30,26 @@ body {
     gap: 4px;
     margin: 0 auto;
 }
+
+.draggable {
+    cursor: pointer;
+    transition: 0.2s;
+    &:hover {
+        opacity: 0.85;
+    }
+}
+
+.draggable_dragging {
+    opacity: 0.7;
+}
+
+
+@media screen and (max-width: 320px) {
+    .game-grid {
+        width: 100%;
+    }
+    .container {
+        margin: 1rem;
+    }
+
+}

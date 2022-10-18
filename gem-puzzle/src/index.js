@@ -1,22 +1,58 @@
 import './scss/main.scss';
 let gameSize = 4;
 let empty = generateGame(gameSize);
-emptySides(gameSize);
+findEmptySides(gameSize);
+
+empty.addEventListener('dragover', (e) => {
+    e.preventDefault();
+})
+
+empty.addEventListener('drop', () => {
+    const dragging = document.querySelector('.draggable_dragging');
+    let tmp = empty.previousElementSibling || empty.nextElementSibling;
+    // dragging.before(empty) || dragging.previousElementSibling.before(empty);
+    if (!empty.previousElementSibling) {
+        dragging.after(empty);
+        tmp.before(dragging);
+    } else {
+        dragging.before(empty);
+        tmp.after(dragging);
+    }
+    findEmptySides(gameSize);
+})
 
 
-function emptySides(gameSize) {
+function findEmptySides(gameSize) {
     const gridArr = [...document.querySelectorAll('.cell')];
-    const empty = document.querySelector('cell_empty');
+    const empty = document.querySelector('.cell_empty');
     const res = [];
     const emptyIndex = gridArr.findIndex(e => e.classList.contains('cell_empty'));
+    const nextIndex = gridArr.indexOf(empty.nextElementSibling);
+    const prevIndex = gridArr.indexOf(empty.previousElementSibling);
     gridArr[emptyIndex - gameSize] && res.push(gridArr[emptyIndex - gameSize]);
     gridArr[emptyIndex + gameSize] && res.push(gridArr[emptyIndex + gameSize]);
-    if (empty.nextElementSibling && empty.nextElementSibling)
-    for (let i = 0; i < gridArr.length; i++) {
+    if (empty.nextElementSibling && (nextIndex) % gameSize !== 0) res.push(empty.nextElementSibling);
+    if (empty.previousElementSibling && (prevIndex + 1) % gameSize !== 0) res.push(empty.previousElementSibling);
+    gridArr.forEach(e => {
+        e.draggable = false;
+        e.classList.remove('draggable')
+    })
+    highlightCells(res);
+    // return res;
+}
 
-    }
-    console.log(res)
+function highlightCells(arr) {
+    arr.forEach(item => {
+        item.draggable = true;
+        item.classList.add('draggable');
 
+        item.addEventListener('dragstart', () => {
+            item.classList.add('draggable_dragging');
+        })
+        item.addEventListener('dragend', () => {
+            item.classList.remove('draggable_dragging');
+        })
+    })
 }
 
 function generateGame(size) {
