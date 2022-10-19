@@ -1,19 +1,28 @@
 import './scss/main.scss';
-// import './modules/controls.js'
 
 let gameSize = 4;
-let nearEmpty = [];
+
+//generate game board
 let empty = generateGame(gameSize);
+
+//create array of empty cell siblings
 findEmptySides(gameSize);
-
-require('./modules/controls');
-
 
 empty.addEventListener('dragover', (e) => {
     e.preventDefault();
 })
 
-empty.addEventListener('drop', () => {
+//swap elements after drop of cell. Run findEmptySides()
+empty.addEventListener('drop', drop);
+
+//create buttons, duration, score
+createControls();
+
+//start timer
+const currentDuration = startDuration();
+
+
+function drop() {
     const dragging = document.querySelector('.draggable_dragging');
     let tmp = empty.previousElementSibling || empty.nextElementSibling;
     if (!empty.previousElementSibling) {
@@ -23,12 +32,11 @@ empty.addEventListener('drop', () => {
         dragging.before(empty);
         tmp.after(dragging);
     }
+
     findEmptySides(gameSize);
-})
+}
 
-
-
-function moveOnClick(e) {
+function moveOnClick() {
     this.style.left = empty.offsetLeft - this.offsetLeft + 'px';
     this.style.top = empty.offsetTop - this.offsetTop + 'px';
     let tmp = empty.previousElementSibling || empty.nextElementSibling;
@@ -55,6 +63,7 @@ function moveOnClick(e) {
 
 
 function findEmptySides(gameSize) {
+    //create array of empty cell's siblings
     const gridArr = [...document.querySelectorAll('.cell')];
     const empty = document.querySelector('.cell_empty');
     const res = [];
@@ -65,14 +74,20 @@ function findEmptySides(gameSize) {
     gridArr[emptyIndex + gameSize] && res.push(gridArr[emptyIndex + gameSize]);
     if (empty.nextElementSibling && (nextIndex) % gameSize !== 0) res.push(empty.nextElementSibling);
     if (empty.previousElementSibling && (prevIndex + 1) % gameSize !== 0) res.push(empty.previousElementSibling);
-    nearEmpty = res;
+
+    //clear draggable property of all cells
     gridArr.forEach(e => {
         e.draggable = false;
         e.classList.remove('draggable')
     })
-    res.forEach(e => e.addEventListener('click', moveOnClick))
+    //make siblings graggable and add them a class
     highlightCells(res);
+
+    //make siblings clickable and swap cells, run findEmptySides()
+    res.forEach(e => e.addEventListener('click', moveOnClick));
 }
+
+
 
 function highlightCells(arr) {
     arr.forEach(item => {
@@ -127,4 +142,36 @@ function shuffleArr(arr) {
         [arr[curr], arr[randomInd]] = [arr[randomInd], arr[curr]];
     }
     return arr;
+}
+
+
+
+
+
+
+
+function startDuration() {
+    const duration = document.querySelector('.scores__duration');
+    let now = new Date();
+    duration.textContent = `${now.getMinutes()}:${now.getSeconds()}`
+}
+
+function stepCount() {
+    const stepsDiv = document.querySelector('.scores__steps');
+    let steps = 0;
+}
+
+function createControls() {
+    const controls = document.createElement('div');
+    controls.className = 'controls'
+    document.querySelector('.container').append(controls);
+
+    const scores = document.createElement('div');
+    scores.className = 'scores';
+    controls.append(scores);
+
+    scores.innerHTML = `
+        <div class="scores__duration"></div>
+        <div class="scores__steps"></div>
+    `;
 }

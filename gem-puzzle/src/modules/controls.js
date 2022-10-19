@@ -1,5 +1,4 @@
 createControls();
-createScores();
 const currentDuration = startDuration();
 
 function startDuration() {
@@ -8,18 +7,22 @@ function startDuration() {
     duration.textContent = `${now.getMinutes()}:${now.getSeconds()}`
 }
 
-function createScores() {
-    const scores = document.createElement('div');
-    scores.className = 'scores';
-    document.body.append(scores);
-    scores.innerHTML = `
-        <div class="scores__duration"></div>
-        <div class="scores__steps"></div>
-    `
+function stepCount() {
+    const stepsDiv = document.querySelector('.scores__steps');
+    let steps = 0;
 }
 
 function createControls() {
     const controls = document.createElement('div');
     controls.className = 'controls'
-    document.body.append(controls);
+    document.querySelector('.container').append(controls);
+
+    const scores = document.createElement('div');
+    scores.className = 'scores';
+    controls.append(scores);
+
+    scores.innerHTML = `
+        <div class="scores__duration"></div>
+        <div class="scores__steps"></div>
+    `;
 }
