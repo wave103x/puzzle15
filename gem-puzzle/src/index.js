@@ -1,7 +1,13 @@
 import './scss/main.scss';
+// import './modules/controls.js'
+
 let gameSize = 4;
+let nearEmpty = [];
 let empty = generateGame(gameSize);
 findEmptySides(gameSize);
+
+require('./modules/controls');
+
 
 empty.addEventListener('dragover', (e) => {
     e.preventDefault();
@@ -10,7 +16,6 @@ empty.addEventListener('dragover', (e) => {
 empty.addEventListener('drop', () => {
     const dragging = document.querySelector('.draggable_dragging');
     let tmp = empty.previousElementSibling || empty.nextElementSibling;
-    // dragging.before(empty) || dragging.previousElementSibling.before(empty);
     if (!empty.previousElementSibling) {
         dragging.after(empty);
         tmp.before(dragging);
@@ -20,6 +25,33 @@ empty.addEventListener('drop', () => {
     }
     findEmptySides(gameSize);
 })
+
+
+
+function moveOnClick(e) {
+    this.style.left = empty.offsetLeft - this.offsetLeft + 'px';
+    this.style.top = empty.offsetTop - this.offsetTop + 'px';
+    let tmp = empty.previousElementSibling || empty.nextElementSibling;
+    this.classList.toggle('cell-animation');
+    setTimeout(() => {
+        if (!empty.previousElementSibling) {
+            this.style.left = 0;
+            this.style.top = 0;
+            this.after(empty);
+            tmp.before(this);
+            this.classList.toggle('cell-animation');
+        } else {
+            this.style.left = 0;
+            this.style.top = 0;
+            this.before(empty);
+            tmp.after(this);
+            this.classList.toggle('cell-animation');
+        }
+        [...document.querySelectorAll('.cell')].forEach(e => e.removeEventListener('click', moveOnClick))
+        findEmptySides(gameSize);
+    }, 300);
+
+}
 
 
 function findEmptySides(gameSize) {
@@ -33,12 +65,13 @@ function findEmptySides(gameSize) {
     gridArr[emptyIndex + gameSize] && res.push(gridArr[emptyIndex + gameSize]);
     if (empty.nextElementSibling && (nextIndex) % gameSize !== 0) res.push(empty.nextElementSibling);
     if (empty.previousElementSibling && (prevIndex + 1) % gameSize !== 0) res.push(empty.previousElementSibling);
+    nearEmpty = res;
     gridArr.forEach(e => {
         e.draggable = false;
         e.classList.remove('draggable')
     })
+    res.forEach(e => e.addEventListener('click', moveOnClick))
     highlightCells(res);
-    // return res;
 }
 
 function highlightCells(arr) {
@@ -52,7 +85,7 @@ function highlightCells(arr) {
         item.addEventListener('dragend', () => {
             item.classList.remove('draggable_dragging');
         })
-    })
+    });
 }
 
 function generateGame(size) {
@@ -82,7 +115,6 @@ function generateGame(size) {
             cell.classList.add('cell_empty')
         }
         grid.append(cell);
-        cell.style.height = cell.parentElement.offsetWidth / size + 'px';
     }
     return empty;
 }
