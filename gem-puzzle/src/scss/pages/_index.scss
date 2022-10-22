@@ -5,7 +5,7 @@ body {
 }
 
 .h1 {
-    font-size: 6vw;
+    font-size: calc(30px + 4vw);
     opacity: 0.3;
     text-align: center;
     margin-top: 2rem;
@@ -71,4 +71,41 @@ body {
     }
     100% {transform: none;}
 
+}
+
+.win-message {
+    position: absolute;
+    font-size: calc(30px + 2vw);
+    font-weight: 800;
+    text-shadow: 0 0 12px rgba(0,0,0,0.4);
+    width: clamp(310px, 90%, 960px);
+    display: none;
+    color: white;
+    left: 50%;
+    top: 20%;
+    transform: translate(-50%);
+    text-align: center;
+    z-index: 20;
+    line-height: 1.1;
+    .exit-text {
+        font-size: calc(14px + 1vw);
+        opacity: 0.5;
+        letter-spacing: 0.4px;
+        font-weight: 400;
+    }
+    .hooray {
+        font-size: calc(calc(60px + 2vw));
+        color: beige;
+        margin-bottom: 1rem;
+        letter-spacing: 1px;
+    }
+}
+
+.blured ~ *{
+    filter: blur(7px);
+    pointer-events: none;
+}
+
+.display-block {
+    display: block;
 }

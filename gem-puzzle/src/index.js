@@ -5,8 +5,6 @@ import dropSound from './assets/sounds/Water_04.wav'
 import dragSound from './assets/sounds/pa1.wav'
 
 
-// let gameSize = 4;
-
 
 let statsObj = {
     gameSize: 4,
@@ -15,6 +13,7 @@ let statsObj = {
     steps: 0,
     layout: [],
     mute: false,
+    win: [],
 }
 
 //create main container
@@ -36,6 +35,24 @@ function drugNclick() {
 
     //make siblings clickable and swap cells, run findEmptySides();
     epmtySiblings.forEach(e => e.addEventListener('click', moveOnClick));
+
+    if (isWin()) {
+        let winTime = '';
+        if (currentTime < 60) {
+            winTime = '00:' + String(currentTime).padStart(2, '0');
+        } else {
+            winTime = 'Duration: ' + Math.trunc(currentTime / 60) + ':' + String(currentTime % 60).padStart(2, '0');
+        }
+
+        winDiv.innerHTML = `<span class="hooray">Hooray!</span><br>You solved the puzzle <br>in ${winTime} and ${statsObj.steps} moves<br><span class="exit-text">click anywhere to exit</span>`;
+        winDiv.classList.toggle('blured');
+        winDiv.classList.toggle('display-block');
+        window.onclick = () => {
+            winDiv.classList.toggle('display-block');
+            winDiv.classList.toggle('blured');
+            window.onclick = null;
+        }
+    }
 }
 
 drugNclick();
@@ -49,6 +66,13 @@ document.body.prepend(h1);
 
 //create buttons, duration, score
 const controls = createControls();
+
+
+
+//create Win message
+const winDiv = document.createElement('div');
+winDiv.className = 'win-message';
+document.body.prepend(winDiv);
 
 //create Steps div
 const stepsDiv = document.querySelector('.scores__steps');
@@ -96,9 +120,19 @@ setInterval(() => {
     } else {
         let mins = Math.trunc(currentTime / 60);
         let sec = currentTime % 60;
-        durationDiv.textContent = 'Duration: ' + mins + ':' + String(sec).padStart(2,0);
+        durationDiv.textContent = 'Duration: ' + mins + ':' + String(sec).padStart(2, '0');
     }
 }, 1000);
+
+function formatTime(currentTime) {
+    const res = '';
+    if (currentTime < 60) {
+        res = '00:' + String(currentTime).padStart(2, '0');
+    } else {
+        res = 'Duration: ' + Math.trunc(currentTime / 60) + ':' + String(currentTime % 60).padStart(2, '0');
+    }
+    return res;
+}
 
 
 //add reset Button behavior
@@ -131,7 +165,7 @@ loadBtn.addEventListener('click', () => {
     } else {
         let mins = Math.trunc(currentTime / 60);
         let sec = currentTime % 60;
-        durationDiv.textContent = 'Duration: ' + mins + ':' + String(sec).padStart(2,0);
+        durationDiv.textContent = 'Duration: ' + mins + ':' + String(sec).padStart(2, '0');
     }
 
     statsObj.steps = statsObj.savedSteps;
@@ -216,7 +250,6 @@ function drop() {
     }
     stepCountUp();
     drugNclick();
-
     const soundDrop = new Audio(dropSound);
     soundDrop.volume = 0.5;
     if (!statsObj.mute) soundDrop.play();
@@ -313,6 +346,14 @@ function generateGame(size, load) {
     if (load) digitsArr = layout.reverse();
     let emptyCell = null;
 
+    digitsArr = [];
+    for (let i = 1; i < 15; i++) {
+        digitsArr.push(i)
+    }
+    digitsArr.push(' ')
+    digitsArr.push(15)
+    digitsArr.reverse();
+
     for (let i = 0; i < size ** 2; i++) {
         let cell = document.createElement('div');
         cell.classList.add('cell');
@@ -340,3 +381,13 @@ function shuffleArr(arr) {
     return arr;
 }
 
+function isWin() {
+    statsObj.win = [];
+    for (let i = 1; i < statsObj.gameSize ** 2; i++) {
+        statsObj.win.push(i)
+    }
+    let digitsArr = saveLayout();
+    return statsObj.win.every((e, i) => {
+        return +e === +digitsArr[i]
+    })
+}
