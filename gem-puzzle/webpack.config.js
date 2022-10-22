@@ -27,6 +27,10 @@ module.exports = {
   module: {
     rules: [
       {
+        test: /\.(ogg|mp3|wav|json)$/i,
+        type: 'asset/resource',
+      },
+      {
         test: /\.s[ac]ss$/i,
         use: [
           devMode ? 'style-loader' : MiniCssExtractPlugin.loader,

@@ -4,8 +4,17 @@ body {
 
 }
 
+.h1 {
+    font-size: 6vw;
+    opacity: 0.3;
+    text-align: center;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    color: white;
+}
+
 .container {
-    margin: 2rem auto;
+    margin: 0 auto;
     width:clamp(310px, 90%, 560px);
 }
 
@@ -63,5 +72,3 @@ body {
     100% {transform: none;}
 
 }
-
-
