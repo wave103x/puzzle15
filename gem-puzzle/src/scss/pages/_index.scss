@@ -153,13 +153,6 @@ body {
     height: 100px;
     bottom: -200px;
     background-color: yellow;
-    // animation: flak 2s ease-out forwards;
     opacity: 1;
-}
-
-@keyframes flak {
-    100% {
-        transform: translateY(-600%) rotate(100deg) scale(0.4);
-        opacity: 0;
-    }
+    pointer-events: none;
 }

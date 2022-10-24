@@ -27,7 +27,7 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.(ogg|mp3|wav|json)$/i,
+        test: /\.(ogg|mp3|wav|json|m4a)$/i,
         type: 'asset/resource',
       },
       {

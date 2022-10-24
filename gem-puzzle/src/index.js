@@ -1,8 +1,9 @@
 'use strict'
 import './scss/main.scss';
-import clickSound from './assets/sounds/zn.wav'
-import dropSound from './assets/sounds/Water_04.wav'
+import clickSound from './assets/sounds/swoosh.wav'
+import dropSound from './assets/sounds/water.wav'
 import dragSound from './assets/sounds/pa1.wav'
+import horaySound from './assets/sounds/done.m4a'
 
 let statsObj = {
     gameSize: 4,
@@ -16,7 +17,10 @@ let statsObj = {
     leaders: [],
 }
 if (localStorage.getItem('statsObj')) statsObj = JSON.parse(localStorage.getItem('statsObj'));
-
+const clickSounds = new Audio(clickSound)
+const dropSounds = new Audio(dropSound)
+const dragSounds = new Audio(dragSound)
+const horaySounds = new Audio(horaySound)
 
 //create main container
 const container = document.createElement('div');
@@ -47,12 +51,20 @@ function drugNclick() {
         winDiv.innerHTML = `<div class="hooray">Hooray!</div>You solved the puzzle <br>in <span>${formatTime(currentTime)}</span> and <span>${statsObj.steps}</span> moves<div class="exit-text">click anywhere to exit</div>`;
         winDiv.classList.toggle('blured');
         winDiv.classList.toggle('display-block');
-        createFirework()
+        createFirework();
+        // horaySounds.volume = 0.5;
+        horaySounds.play();
         window.onclick = () => {
             winDiv.classList.toggle('display-block');
             winDiv.classList.toggle('blured');
+            horaySounds.pause();
+            horaySounds.currentTime = 0;
             window.onclick = null;
+            saveStats();
+            resetBtn.click();
         }
+
+
     }
     saveStats();
 }
@@ -324,21 +336,23 @@ function drop() {
     }
     stepCountUp();
     drugNclick();
-    const soundDrop = new Audio(dropSound);
-    soundDrop.volume = 0.5;
-    if (!statsObj.mute) soundDrop.play();
+    // const soundDrop = new Audio(dropSound);
+    dragSounds.pause();
+    dragSounds.currentTime = 0;
+    dropSounds.volume = 0.5;
+    if (!statsObj.mute) dropSounds.play();
+
 }
 
-function moveOnClick(elem) {
+function moveOnClick(event) {
     this.style.left = empty.offsetLeft - this.offsetLeft + 'px';
     this.style.top = empty.offsetTop - this.offsetTop + 'px';
     let tmp = empty.previousElementSibling || empty.nextElementSibling;
     this.classList.toggle('cell-animation');
-
-    const soundClick = new Audio(clickSound);
-    soundClick.volume = 0.3;
-    if (!statsObj.mute) soundClick.play();
-    elem.onclick = null;
+    clickSounds.currentTime = 0;
+    clickSounds.volume = 0.3;
+    if (!statsObj.mute) clickSounds.play();
+    event.currentTarget.removeEventListener('click', moveOnClick)
     stepCountUp();
     setTimeout(() => {
         if (!empty.previousElementSibling) {
@@ -370,8 +384,8 @@ function findEmptySides(gameSize) {
 
     gridArr[emptyIndex - +statsObj.gameSize] && draggables.push(gridArr[emptyIndex - +statsObj.gameSize]);
     gridArr[emptyIndex + +statsObj.gameSize] && draggables.push(gridArr[emptyIndex + +statsObj.gameSize]);
-    if (empty.nextElementSibling && (nextIndex) % gameSize !== 0) draggables.push(empty.nextElementSibling);
-    if (empty.previousElementSibling && (prevIndex + 1) % gameSize !== 0) draggables.push(empty.previousElementSibling);
+    if (empty.nextElementSibling && (nextIndex) % statsObj.gameSize !== 0) draggables.push(empty.nextElementSibling);
+    if (empty.previousElementSibling && (prevIndex + 1) % statsObj.gameSize !== 0) draggables.push(empty.previousElementSibling);
 
     //clear draggable and clickable status of all cells
     gridArr.forEach(e => {
@@ -390,7 +404,9 @@ function makeDraggable(arr) {
         item.addEventListener('dragstart', () => {
             item.classList.add('draggable_dragging');
 
-            const dragSounds = new Audio(dragSound);
+            // const dragSounds = new Audio(dragSound);
+            dropSounds.pause();
+            dropSounds.currentTime = 0;
             dragSounds.volume = 0.2;
             if (!statsObj.mute) dragSounds.play();
         })
@@ -401,6 +417,25 @@ function makeDraggable(arr) {
     return arr;
 }
 
+function isSolvable4x(arr) {
+    const res = [];
+    let emptyIndex = 0;
+    for (let i = 0; i < arr.length; i++) {
+        let sum = 0;
+        if (arr[i] === ' ') {
+            emptyIndex = i;
+            continue;
+        }
+        for (let j = 0; j < arr.length - i; j++) {
+            if (arr[i] > arr[j]) sum += +arr[j];
+        }
+        res.push(sum);
+    }
+    let sum = res.reduce((acc, cur) => acc += cur);
+    sum += Math.trunc(emptyIndex / 3);
+    return sum;
+}
+
 function generateGame(size, load) {
     if (container.hasChildNodes()) container.firstElementChild.remove();
     const grid = document.createElement('div');
@@ -408,25 +443,33 @@ function generateGame(size, load) {
     container.prepend(grid);
     grid.style.gridTemplateColumns = `repeat(${size}, 1fr)`;
 
+
     let digitsArr = [];
-    for (let i = 0; i < size ** 2 - 1; i++) {
-        digitsArr.push(i + 1)
-    }
-    digitsArr.push(' ');
-    shuffleArr(digitsArr);
+    do {
+        digitsArr = []
+        for (let i = 0; i < size ** 2 - 1; i++) {
+            digitsArr.push(i + 1)
+        }
+        digitsArr.push(' ');
+        shuffleArr(digitsArr);
+        if (statsObj.gameSize !== 4) break;
+    } while (isSolvable4x(digitsArr) % 2 !== 0)
+
+
+
+    if (statsObj.gameSize === '3' || statsObj.gameSize === '4') digitsArr = makeSolvable3x()
 
     let layout = [...statsObj.layout];
-
     if (load) digitsArr = layout.reverse();
     else if (statsObj.layoutStorage.length) {
         digitsArr = statsObj.layoutStorage.reverse();
     }
-    let emptyCell = null;
 
     if (load === 'win') {
         digitsArr = createWinLayout()
     }
 
+    let emptyCell = null;
     for (let i = 0; i < size ** 2; i++) {
         let cell = document.createElement('div');
         cell.classList.add('cell');
@@ -478,7 +521,6 @@ function formatTime(currentTime) {
     return res;
 }
 
-
 function createWinLayout() {
     const win = [];
     for (let i = 1; i < statsObj.gameSize ** 2 - 1; i++) {
@@ -489,17 +531,16 @@ function createWinLayout() {
     return win.reverse();
 }
 
-
 function createFirework() {
-    const fireCount = Math.trunc(window.innerWidth/40);
+    const fireCount = Math.trunc(window.innerWidth / 40);
     for (let i = 0; i < fireCount; i++) {
         let flak = document.createElement('div');
         flak.className = 'flak';
         flak.style.left = random(0, window.innerWidth) + 'px';
-        flak.style.filter = `hue-rotate(${random(0,360)}deg) blur(7px)`;
+        flak.style.filter = `hue-rotate(${random(0, 360)}deg) blur(7px)`;
         document.body.append(flak);
         flak.animate([
-            {transform: `translateY(-${random(400,1400)}px) rotate(${random(40,160)}deg) scale(0.4)`, opacity: '0'}
+            { transform: `translateY(-${random(400, 1400)}px) rotate(${random(40, 160)}deg) scale(1.3)`, opacity: '0' }
         ], {
             duration: 5000,
             fill: 'forwards',
@@ -510,4 +551,28 @@ function createFirework() {
 
 function random(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+function makeSolvable3x() {
+    let arr = createWinLayout().reverse();
+    let steps = random(60, 80);
+    let direction = 0;
+    let draggables = [];
+    for (let i = 0; i < steps; i++) {
+
+        draggables = [];
+        let emptyIndex = arr.findIndex(e => e === ' ');
+        let nextIndex = emptyIndex === statsObj.gameSize ** 2 - 1 ? null : emptyIndex + 1;
+        let prevIndex = emptyIndex === 0 ? null : emptyIndex - 1;
+
+        arr[emptyIndex - +statsObj.gameSize] && draggables.push(emptyIndex - +statsObj.gameSize);
+        arr[emptyIndex + +statsObj.gameSize] && draggables.push(emptyIndex + +statsObj.gameSize);
+        if (nextIndex && nextIndex % statsObj.gameSize !== 0) draggables.push(nextIndex);
+        if (prevIndex && (prevIndex + 1) % statsObj.gameSize !== 0) draggables.push(prevIndex);
+
+        direction = random(0, draggables.length - 1);
+        arr.splice(emptyIndex, 1, arr[draggables[direction]])
+        arr.splice(draggables[direction], 1, ' ')
+    }
+    return arr.reverse();
 }
