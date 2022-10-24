@@ -35,14 +35,14 @@ module.exports = {
         use: [
           devMode ? 'style-loader' : MiniCssExtractPlugin.loader,
           'css-loader',
-          // {
-          //   loader: 'postcss-loader',
-          //   options: {
-          //     postcssOptions: {
-          //       plugins: [require('postcss-preset-env')]
-          //     }
-          //   }
-          // },
+          {
+            loader: 'postcss-loader',
+            options: {
+              postcssOptions: {
+                plugins: [require('postcss-preset-env')]
+              }
+            }
+          },
           'sass-loader',
         ]
       },
@@ -80,16 +80,16 @@ module.exports = {
         }],
         type: 'asset/resource',
       },
-      // {
-      //   test: /\.m?js$/,
-      //   exclude: /(node_modules|bower_components)/,
-      //   use: {
-      //     loader: 'babel-loader',
-      //     options: {
-      //       presets: ['@babel/preset-env']
-      //     }
-      //   }
-      // }
+      {
+        test: /\.m?js$/,
+        exclude: /(node_modules|bower_components)/,
+        use: {
+          loader: 'babel-loader',
+          options: {
+            presets: ['@babel/preset-env']
+          }
+        }
+      }
     ]
   }
 }
