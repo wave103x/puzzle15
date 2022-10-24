@@ -52,8 +52,10 @@ function drugNclick() {
         winDiv.classList.toggle('blured');
         winDiv.classList.toggle('display-block');
         createFirework();
-        // horaySounds.volume = 0.5;
-        horaySounds.play();
+        setTimeout(() => {
+            Array.from(document.querySelectorAll('.flak')).forEach(e => e.remove())
+        }, 5000);
+        if (!statsObj.mute) horaySounds.play();
         window.onclick = () => {
             winDiv.classList.toggle('display-block');
             winDiv.classList.toggle('blured');
@@ -63,8 +65,6 @@ function drugNclick() {
             saveStats();
             resetBtn.click();
         }
-
-
     }
     saveStats();
 }
