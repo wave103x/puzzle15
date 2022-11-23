@@ -1,2 +1,3 @@
-# wave103x-JSFE2022Q3
-Private repository for @wave103x
+# 15 puzzle game
+education project
+## [deploy](https://wave103x.github.io/puzzle15/gem-puzzle/)
